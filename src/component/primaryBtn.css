@@ -1,0 +1,4 @@
+.primary-btn :where(.css-dev-only-do-not-override-nnuwmp)[class^="ant-col"] {
+  font-size: 17px;
+  font-weight: 700;
+}

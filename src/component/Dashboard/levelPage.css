@@ -1,0 +1,134 @@
+.level-page-content {
+    background: #C4C4C4;
+    padding: 20px 100px;
+}
+
+.level-page-left-part {
+    padding: 20px;
+    position: relative;
+    margin-top: -210px;
+}
+
+.level-page-info-box-top {
+    background: #ebeaea;
+    padding: 25px 25px 0 25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.level-page-info-box-bottom {
+    background-color: white;
+    padding: 20px 25px 25px 25px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.level-page-info-box {
+    margin-bottom: 20px;
+}
+
+.level-page-action {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.level-page-lno {
+    font-size: 20px;
+    font-weight: 600;
+    background: #9F46E5;
+    width: 100px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    padding: 3px;
+}
+
+.level-page-title {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 20px 0;
+}
+
+.level-page-description-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.level-page-description-content {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.level-page-action-title {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 18px 0;
+}
+
+.level-page-action-option-number {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.level-page-action-option-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.level-page-action-option-description {
+    font-size: 14px;
+}
+
+.level-page-note {
+    background: #fae98c;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+
+}
+
+.level-page-right-part {
+    padding: 20px;
+}
+
+.level-page-right-part-box {
+    height: 300px;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+    .level-page-content {
+        padding: 20px 10px;
+    }
+
+    .level-page-title {
+        font-size: 22px;
+        padding: 10px 0;
+    }
+
+    .level-page-left-part {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+    .level-page-content {
+        padding: 20px 22px;
+    }
+
+    .level-page-title {
+        font-size: 24px;
+        padding: 13px 0;
+    }
+
+    .level-page-left-part {
+        margin-top: -188px;
+    }
+}

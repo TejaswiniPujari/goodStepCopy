@@ -1,0 +1,558 @@
+.header-bar {
+    background: rgb(103, 88, 242);
+    padding: 10px;
+    text-align: center;
+}
+
+.Headerlogo {
+    height: 50px;
+    width: 200px;
+    margin: auto;
+}
+
+.homePage-title {
+    font-size: 46px;
+    color: rgb(103, 88, 242);
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+}
+
+.homePage-des {
+    font-size: 20px;
+    color: rgb(103, 88, 242);
+    line-height: 29px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.s1 {
+    width: 85vw;
+    margin: 10px auto;
+}
+
+.s2 {
+    width: 60vw;
+    margin: 120px auto;
+}
+
+.homePage-title-s2 {
+    font-size: 150px;
+    color: rgb(103, 88, 242);
+    font-weight: bold;
+    position: relative;
+    top: -50px;
+}
+
+.s3 {
+    padding: 120px;
+    background: linear-gradient(235.07deg,
+            rgba(216, 112, 206, 0.5785) 16.51%,
+            rgba(112, 124, 216, 0.89) 34.64%,
+            rgba(126, 183, 247, 0.4984) 56.22%,
+            rgba(243, 60, 196, 0.5785) 87.43%);
+}
+
+.s3-step1-number {
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #6758f2;
+    height: 31px;
+    width: 31px;
+    padding: 10px;
+}
+
+.s3-step1,
+.s3-step2 {
+    margin-bottom: 100px;
+}
+
+.s3-step-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.s3-steps-info {
+    max-height: 500px;
+    overflow: scroll;
+}
+
+.steps-action {
+    width: 100%;
+    height: 500px;
+}
+
+.s3-step-des {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.s3-step-link {
+    color: white;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.s3-step-link:hover {
+    color: white;
+}
+
+.s4 {
+    padding: 80px 30px;
+}
+
+.s4-des {
+    font-size: 23px;
+    text-align: center;
+    color: #7c6ff4;
+    font-weight: 500;
+}
+
+.s4-title {
+    font-size: 46px;
+    text-align: center;
+    color: #6758f2;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.contentStyle1 {
+    background-image: url(../../img/crop-farmer.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+.contentStyle2 {
+    background-image: url(../../img/crop-farmer1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+.contentStyle3 {
+    background-image: url(../../img/crop-farmer3.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+.s4-c {
+    padding: 80px;
+}
+
+.s4-c-title {
+    font-size: 30px;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.s4-c-des {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.s4-c-dots {
+    margin-top: 50px;
+}
+
+.s3-steps-info::-webkit-scrollbar {
+    display: none;
+}
+
+.cardBox {
+    height: 315px;
+    width: 100%;
+    border: 2px solid #6758f2;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #6758f2;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.card-des {
+    font-size: 14px;
+    color: #1a2873;
+    font-weight: 500;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+}
+
+.s5 {
+    padding: 60px 44px;
+    background: radial-gradient(circle, rgb(247 220 232) 0%, rgb(169 200 237) 50%);
+}
+
+:where(.css-dev-only-do-not-override-nnuwmp).ant-carousel .slick-dots-bottom {
+    bottom: -20px !important;
+}
+
+:where(.css-dev-only-do-not-override-nnuwmp).ant-carousel .slick-dots li button {
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+:where(.css-dev-only-do-not-override-nnuwmp).ant-carousel .slick-dots li.slick-active button {
+    background: black;
+}
+
+.ready-arrow {
+    border: none;
+    background: transparent;
+
+}
+
+.s6 {
+    padding: 100px;
+}
+
+.s6-title {
+    font-size: 44px;
+    color: #6758f2;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.s6-des {
+    width: 50vw;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #6758f2;
+    margin-bottom: 50px;
+}
+
+.ready-arrow {
+    border: none;
+    background: transparent;
+}
+
+.footer {
+    background: #684ba5;
+}
+
+.footer-s1 {
+    padding: 60px;
+}
+
+.footer-title {
+    font-size: 44px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-des {
+    color: white;
+    font-size: 20px;
+    width: 75vw;
+    margin: 22px auto;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.footer-title2 {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.footer-title3 {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.footer-link {
+    font-size: 16px;
+    color: white;
+}
+
+.footer-a {
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+}
+
+.footer-m {
+    border-left: 1px solid white;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.l-r {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+    .homePage-des {
+        font-size: 13px;
+        line-height: 23px;
+    }
+
+    .homePage-title {
+        font-size: 26px;
+        top: -4px;
+    }
+
+    .s2 {
+        margin: 50px auto;
+    }
+
+    .homePage-title-s2 {
+        font-size: 87px;
+        top: -28px;
+    }
+
+    .s3 {
+        padding: 60px;
+    }
+
+    .s3-step1,
+    .s3-step2 {
+        margin-bottom: 40px;
+    }
+
+    .s3-step-title {
+        font-size: 20px;
+        margin-bottom: 21px;
+    }
+
+    .s3-step-link {
+        font-size: 16px;
+    }
+
+    .s3-step-des {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .s3-steps-info {
+        max-height: 350px;
+    }
+
+    .steps-action {
+        height: 350px;
+    }
+
+    .s4 {
+        padding: 38px 30px;
+    }
+
+    .s4-title {
+        font-size: 27px;
+        margin: 12px 0;
+    }
+
+    .s4-c {
+        padding: 14px;
+    }
+
+    .s4-c-dots img {
+        width: 50%;
+    }
+
+    .s4-c-dots {
+        margin-top: 39px;
+    }
+
+    .contentStyle1,
+    .contentStyle2,
+    .contentStyle3 {
+        height: 350px;
+    }
+
+    .card-des {
+        font-size: 10px;
+    }
+
+    .s6 {
+        padding: 47px;
+    }
+
+    .s6-des {
+        margin-bottom: 38px;
+    }
+
+    .s6-title {
+        font-size: 37px;
+    }
+
+    .footer-s1 {
+        padding: 31px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Headerlogo {
+        height: 40px;
+        width: 150px;
+        margin: auto;
+    }
+    .l-r {
+        font-size: 14px;
+    }
+    .card-des {
+        font-size: 12px;
+    }
+
+    .homePage-title {
+        font-size: 41px;
+    }
+
+    .homePage-des {
+        font-size: 17px;
+    }
+
+    .homePage-title-s2 {
+        font-size: 100px;
+        margin-bottom: -36px;
+    }
+
+    .s2 {
+        width: 80vw;
+        margin: 75px auto 20px;
+    }
+
+    .s3 {
+        padding: 16px;
+    }
+
+    .steps-action {
+        height: 250px;
+    }
+
+    .s3-steps-info {
+        max-height: 250px;
+    }
+
+    .s3-step-des {
+        font-size: 9px;
+        margin-bottom: 6px;
+    }
+
+    .s3-step-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .s3-step-link {
+        font-size: 12px;
+    }
+
+    .s3-step1,
+    .s3-step2 {
+        margin-bottom: 26px;
+    }
+
+    .s4 {
+        padding: 36px 30px;
+    }
+
+    .s4-title {
+        font-size: 21px;
+    }
+
+    .s4-c {
+        padding: 0;
+    }
+
+    .contentStyle1,
+    .contentStyle2,
+    .contentStyle3 {
+        height: 307px;
+        padding: 31px;
+    }
+
+    .s4-c-title {
+        font-size: 24px;
+    }
+
+    .s4-c-des {
+        font-size: 14px;
+    }
+
+    .s4-c-dots img {
+        width: 60%;
+    }
+
+    .s4-c-dots {
+        margin-top: 26px;
+    }
+
+    .s6 {
+        padding: 35px 10px;
+    }
+
+    .s6-des {
+        width: 83vw;
+        font-size: 13px;
+        margin-bottom: 17px;
+    }
+
+    .s6-title {
+        font-size: 28px;
+        margin-bottom: 11px;
+    }
+
+    .footer-s1 {
+        padding: 30px;
+    }
+
+    .footer-title {
+        font-size: 27px;
+    }
+
+    .footer-logo img {
+        width: 50%;
+    }
+
+    .footer-des {
+        font-size: 16px;
+        width: 86vw;
+        margin-bottom: 38px;
+    }
+
+    .footer-m {
+        border: none;
+        text-align: start;
+    }
+
+    .footer-title3 {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        padding: 0 26px 20px;
+    }
+}

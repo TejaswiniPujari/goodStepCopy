@@ -1,0 +1,151 @@
+.dashboard-header {
+    background: #9F46E5;
+    padding: 8px 20px;
+}
+
+.dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light,
+:where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light>.ant-menu,
+:where(.css-nnuwmp).ant-menu-light {
+    color: white;
+    font-weight: bold;
+    background: #9F46E5;
+    font-size: 15px;
+}
+
+.dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light.ant-menu-horizontal>.ant-menu-item-selected::after {
+    border: none;
+}
+
+.dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light.ant-menu-horizontal>.ant-menu-item-selected,
+:where(.css-nnuwmp).ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected {
+    color: #fdd500;
+}
+
+.dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-horizontal ,
+:where(.css-nnuwmp).ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected::after, :where(.css-nnuwmp).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-item-selected::after, :where(.css-nnuwmp).ant-menu-light.ant-menu-horizontal >.ant-menu-submenu-selected::after, :where(.css-nnuwmp).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-submenu-selected::after{
+    border: none;
+}
+
+:where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light.ant-menu-submenu>.ant-menu {
+    background: #9F46E5;
+}
+
+.dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light.ant-menu-horizontal>.ant-menu-submenu-active::after,
+.dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light.ant-menu-horizontal>.ant-menu-submenu:hover::after,
+:where(.css-nnuwmp).ant-menu-horizontal {
+    border: none;
+}
+
+.dashboard-header .anticon,
+:where(.css-nnuwmp).ant-menu-light {
+    color: white;
+}
+
+.dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu .ant-menu-submenu-title .anticon {
+    font-size: 32px;
+    position: relative;
+    top: 6px;
+}
+
+.dashboard-content {
+    padding: 20px 100px;
+}
+
+/* .dashboard-welcome-section{
+    width: 70%;
+} */
+.dashboard-welcome-txt {
+    font-size: 28px;
+    color: #373F41;
+    font-weight: 700;
+}
+
+.current-level-number {
+    padding: 10px 18px;
+    background: #9F46E5;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+.cln {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.all-level-list-title {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.all-level-list-des {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.all-level-list-card {
+    padding: 10px;
+}
+
+.all-levels-txt {
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    margin: 50px 0px 10px;
+}
+
+.dashboard-header-logo {
+    width: 60%;
+}
+
+.new-goodstep {
+    padding: 50px 0;
+}
+
+.left-right-arrow {
+    font-size: 40px;
+    color: #cbc7ce;
+}
+
+@media (max-width: 600px) {
+    .dashboard-content {
+        padding: 20px 30px;
+    }
+
+    .dashboard-welcome-txt {
+        font-size: 20px;
+    }
+
+    .current-level-number {
+        padding: 6px 18px;
+    }
+
+    .all-levels-txt {
+        font-size: 24px;
+        margin: 30px 5px 10px;
+    }
+
+    .dashboard-header-logo {
+        width: 100%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+    .current-level-number {
+        padding: 7px 18px;
+    }
+
+    .all-levels-txt {
+        font-size: 24px;
+        margin: 29px 24px 10px;
+    }
+
+    .dashboard-content {
+        padding: 20px 66px;
+    }
+}
