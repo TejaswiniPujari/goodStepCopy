@@ -1,15 +1,17 @@
 import banner from '../../img/food-page-title.jpg';
-import { Row, Col } from "antd";
+import { Row, Col, Modal } from "antd";
 import './levelPage.css';
 import { useParams } from "react-router-dom";
 import DashboardHeader from './DashboardHeader';
+import StartQuize from './StartQuize';
 
 const LevelPage = () => {
     const params = useParams();
     const levelNumber = params.levelNumber;
 
+
+    
     const levelInfo = [{
-        levelNumber: '1',
         title: 'Support your household help and their families’ education ',
         descriptions: [
             {
@@ -25,6 +27,8 @@ const LevelPage = () => {
         options: [
             {
                 title: 'Enroll your househelp with Goodstep partners',
+                imgUrl:'',
+                videoUrl:'',
                 description: 'We also have a vetted list of NGOs you can reach out to and get your staff and their families enrolled in school. '
             }
         ]
@@ -81,6 +85,7 @@ const LevelPage = () => {
                 </Col>
             </Row>
         </div>
+        <StartQuize/>
     </>)
 }
 export default LevelPage;

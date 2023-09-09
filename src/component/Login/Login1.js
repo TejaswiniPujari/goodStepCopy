@@ -1,13 +1,10 @@
 
-import { Checkbox, Form ,DatePicker} from 'antd';
+import { Checkbox, Form, DatePicker, Spin, notification, Modal } from 'antd';
 import './login.css';
 import { useState } from 'react';
-import { BaseUrl } from '../../Constant';
-import $ from 'jquery';
-import App from '../../App';
-import { register } from '../../request';
+import { baseUrl } from '../../request';
 
-const Login1 = ({ onFinish, onFinishFailed }) => {
+const Login1 = ({ onFinish, onFinishFailed, loading }) => {
     const [steps, setSteps] = useState(1);
     const [userInfo, setUserInfo] = useState({});
     const [acceptPolicy, setAcceptPolicy] = useState(false);
@@ -15,7 +12,38 @@ const Login1 = ({ onFinish, onFinishFailed }) => {
     const updateUserInfo = async (val, step) => {
         const data = userInfo;
         if (step === 5) {
-            register({ ...data, ...val });
+            const response = await fetch(`${baseUrl}/register`, {
+                method: "POST",
+                mode: 'no-cors',
+                cache: "no-cache",
+                credentials: "same-origin",
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ ...data, ...val }),
+            }).then(res => res.json()) || {};
+
+            if (response.message === "Failed to create user") {
+                Modal.error({
+                    title: 'Failed to create user',
+                    content: 'please try again...',
+                });
+            }
+            else if (response.message === "User Already Existed") {
+                Modal.info({
+                    title: 'User Already Existed',
+                    content: 'please login...',
+                });
+                setSteps(6);
+            }
+            else if (response.email) {
+                notification.success({
+                    message: 'You successfully complete registration process',
+                })
+                setSteps(5);
+            }
         }
         setUserInfo({ ...data, ...val });
     }
@@ -37,7 +65,6 @@ const Login1 = ({ onFinish, onFinishFailed }) => {
 
     const savestep4Data = (val) => {
         updateUserInfo(val, 5);
-        setSteps(5);
     }
 
     return (<>
@@ -219,43 +246,45 @@ const Login1 = ({ onFinish, onFinishFailed }) => {
             </div>
         }
         {steps === 6 &&
-            <div className='login-box'>
-                <div className='login-form'>
-                    <div className='login-title center'>Login</div>
-                    <Form
-                        onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}
-                        autoComplete="off"
-                    >
-                        <Form.Item
-                            name="email"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your email!',
-                                },
-                            ]}
+            <Spin spinning={loading}>
+                <div className='login-box'>
+                    <div className='login-form'>
+                        <div className='login-title center'>Login</div>
+                        <Form
+                            onFinish={onFinish}
+                            onFinishFailed={onFinishFailed}
+                            autoComplete="off"
                         >
-                            <input type='email' placeholder='Email ID' className='step3-inputBox' />
-                        </Form.Item>
+                            <Form.Item
+                                name="email"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your email!',
+                                    },
+                                ]}
+                            >
+                                <input type='email' placeholder='Email ID' className='step3-inputBox' />
+                            </Form.Item>
 
-                        <Form.Item
-                            name="password"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your password!',
-                                },
-                            ]}
-                        >
-                            <input placeholder='Password' className='step3-inputBox' />
-                        </Form.Item>
-                        <Form.Item>
-                            <div className='center'><button className='step3-primary-button' type="primary" htmlType="submit">Log In</button></div>
-                        </Form.Item>
-                    </Form>
+                            <Form.Item
+                                name="password"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your password!',
+                                    },
+                                ]}
+                            >
+                                <input placeholder='Password' className='step3-inputBox' />
+                            </Form.Item>
+                            <Form.Item>
+                                <div className='center'><button className='step3-primary-button' type="primary" htmlType="submit">Log In</button></div>
+                            </Form.Item>
+                        </Form>
+                    </div>
                 </div>
-            </div>
+            </Spin>
         }
     </>)
 }
