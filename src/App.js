@@ -85,9 +85,9 @@ const App = () => {
         </Col>
       </Row>
     </div>
-    <div className="half-circle" id="zoom">
+    {/* <div className="half-circle" id="zoom">
       <img src={HalfCircleImg} alt="" width={'100%'}></img>
-    </div>
+    </div> */}
     <div className="s3">
       <Row justify={'space-between'}>
         <Col span={1}>

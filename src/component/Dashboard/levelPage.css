@@ -37,11 +37,19 @@
     font-size: 20px;
     font-weight: 600;
     background: #9F46E5;
-    width: 100px;
+    /* width: 100px; */
     border-radius: 20px;
     text-align: center;
     color: white;
     padding: 3px;
+}
+.badgeimg{
+    margin-left: 10px;
+    position: relative;
+    top: -4px;
+}
+.levelsteps{
+    padding-bottom: 20px;
 }
 
 .level-page-title {

@@ -2,7 +2,7 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { Row, Col } from 'antd';
 import './primaryBtn.css';
 
-const PrimaryBtn = ({ title, color, background, colorh, backgroundh, border }) => {
+const PrimaryBtn = ({ title, color, background, colorh, backgroundh, border ,onClick}) => {
 
     const primaryBtn = {
         background: background,
@@ -17,8 +17,11 @@ const PrimaryBtn = ({ title, color, background, colorh, backgroundh, border }) =
         e.target.style.backgroundColor = backgroundh;
         e.target.style.color = colorh;
     }
+    const onBtnClick=()=>{
+
+    }
     return (<div className='primary-btn'>
-        <button style={primaryBtn} onMouseOver={changeBackground}>
+        <button style={primaryBtn} onMouseOver={changeBackground} onClick={onClick || onBtnClick}>
             <Row justify={'space-between'}>
                 <Col>
                     {title}
