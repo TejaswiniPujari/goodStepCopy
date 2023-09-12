@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.010a952b.css",
+    "main.js": "/static/js/main.437bf0fa.js",
+    "static/media/home-slides-banner2.png": "/static/media/home-slides-banner2.d0139ca7020e81ecc017.png",
+    "static/media/half-circle.png": "/static/media/half-circle.52dba5283e853bfadbf8.png",
+    "static/media/food-page-title.jpg": "/static/media/food-page-title.4c418bd36949827d3a1e.jpg",
+    "static/media/newevent.jpg": "/static/media/newevent.8848c14576ea35846014.jpg",
+    "static/media/step1.png": "/static/media/step1.0cdd5a95bad89a1ad6cf.png",
+    "static/media/step-3.png": "/static/media/step-3.7f3fa752bbfc77e28aa2.png",
+    "static/media/crop-farmer1.jpg": "/static/media/crop-farmer1.7cc91864eef36209c308.jpg",
+    "static/media/step-2.png": "/static/media/step-2.d3c448aa91da57179d64.png",
+    "static/media/step-1.png": "/static/media/step-1.6c28020359b87a55a96f.png",
+    "static/media/crop-farmer3.jpg": "/static/media/crop-farmer3.42c27fd297faa432d2ee.jpg",
+    "static/media/crop-farmer.jpg": "/static/media/crop-farmer.563352237aa074272709.jpg",
+    "static/media/footer-logo1.png": "/static/media/footer-logo1.b49646753298746bb3e5.png",
+    "static/media/level1.jpg": "/static/media/level1.fb01beb9f4a25e94c140.jpg",
+    "index.html": "/index.html",
+    "main.010a952b.css.map": "/static/css/main.010a952b.css.map",
+    "main.437bf0fa.js.map": "/static/js/main.437bf0fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.010a952b.css",
+    "static/js/main.437bf0fa.js"
+  ]
+}
