@@ -12,29 +12,30 @@ const items = [
         key: '1',
         icon: <HomeOutlined />,
     },
-    {
-        label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Impact</NavLink>,
-        key: '2',
-        icon: <InteractionOutlined />,
-    },
-    {
-        label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Community</NavLink>,
-        key: '3',
-        icon: <TeamOutlined />,
-    },
-    {
-        label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Explore</NavLink>,
-        key: '4',
-        icon: <GlobalOutlined />,
-    },
-    {
-        label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Leaderboard</NavLink>,
-        key: '5',
-        icon: <GlobalOutlined />,
-    },
+    // {
+    //     label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Impact</NavLink>,
+    //     key: '2',
+    //     icon: <InteractionOutlined />,
+    // },
+    // {
+    //     label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Community</NavLink>,
+    //     key: '3',
+    //     icon: <TeamOutlined />,
+    // },
+    // {
+    //     label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Explore</NavLink>,
+    //     key: '4',
+    //     icon: <GlobalOutlined />,
+    // },
+    // {
+    //     label: <NavLink className="nav-link active" aria-current="page" to={'#'}>Leaderboard</NavLink>,
+    //     key: '5',
+    //     icon: <GlobalOutlined />,
+    // },
     {
         label: <NavLink className="nav-link active" aria-current="page" to={'/'} onClick={() => {
-            localStorage.setItem("logged", 'false')
+            localStorage.setItem("logged", 'false');
+            localStorage.setItem("userDetails", null);
         }}>LogOut</NavLink>,
         key: '6',
         icon: <LogoutOutlined />,
@@ -54,8 +55,8 @@ const DashboardHeader = () => {
                 <Col xs={8} md={6} lg={4}>
                     <img src={logo} alt='' className='dashboard-header-logo'></img>
                 </Col>
-                <Col xs={4} md={14} lg={13} style={{ textAlign: 'end' }}>
-                    <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+                <Col xs={4} md={14} lg={13}>
+                    <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} align='end' />
                 </Col>
             </Row>
         </div>

@@ -31,12 +31,27 @@ const App = () => {
   //   document.addEventListener("mouseout", function(e) {  
   //     zoomElement.style.transform = `scale(${zoom -= ZOOM_SPEED})`;
   // });
+
+const goToLoginRegisterPage=(flag)=>{
+  localStorage.setItem("stepNumber",flag);
+  navigate('/login-register');
+}
+
   return (<>
     <div className="header-bar">
       <Row align={'middle'} justify={'space-between'}>
         <Col xs={12} md={20}><img src={HeaderImg} alt="" className="Headerlogo"></img></Col>
-        <Col xs={10} md={4}><button onClick={() => navigate('/login')} className='l-r'><UserOutlined style={{ marginRight: '10px' }} />Login / Register</button></Col>
-      </Row>
+       <Col xs={8} md={4}>
+        <Row>
+          <Col span={12}>
+          <button onClick={() => goToLoginRegisterPage(6)} className='l-r'>Login</button>
+          </Col>
+          <Col span={12}>
+          <button onClick={() => goToLoginRegisterPage(1)} className='l-r'>Register</button>
+          </Col>
+        </Row>
+        </Col>
+       </Row>
     </div>
     <Marquee speed={200}>
       <div className="home-slides-banner"><img src={SliderImg} alt="" height={'350px'} width={'100%'}></img></div>

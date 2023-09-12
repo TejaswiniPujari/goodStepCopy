@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, notification } from 'antd';
-import Login1 from './Login1';
+import Register from './Register';
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../../request';
 
-const Login = () => {
+export const Login = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -12,37 +12,36 @@ const Login = () => {
         setLoading(true);
         const response = await fetch(`${baseUrl}/login`, {
             method: "POST",
-            mode: 'no-cors',
-            cache: "no-cache",
-            credentials: "same-origin",
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+              },
             body: JSON.stringify(values),
-        }).then(res => res.json()) || {};
+        }).then(res => res.json());
 
-        if (response.message === "Invalid credentials") {
+        if (response.error === "Invalid credentials") {
             Modal.error({
                 title: 'Invalid Credentials',
                 content: 'You have entered invalid credentials. please try again...',
             });
         }
-        else if (response.message === "Server error") {
+        else if (response.error === "Server error") {
             Modal.info({
                 title: 'Server Error',
                 content: 'please try again...',
             });
         }
-        else if (response.email) {
+        else if (response==="Logged In Successfully") {
             notification.success({
                 message: 'You logged in Successfully',
             })
-            setLoading(false);
+            localStorage.setItem("email",  values.email);
+            // localStorage.setItem("userDetails",  JSON.stringify(response));
             localStorage.setItem("logged", 'true');
             navigate('/dashboard');
         }
+        setLoading(false);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -58,9 +57,9 @@ const Login = () => {
 
     return (
         <div className='app'>
-            <Login1 onFinish={onFinish} onFinishFailed={onFinishFailed} loading={loading} />
+            <Register onFinish={onFinish} onFinishFailed={onFinishFailed} loading={loading} />
         </div>
     );
 };
 
-export default Login;
+// export default Login;

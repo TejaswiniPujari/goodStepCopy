@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import { Form, Input, Modal, Row, Col, notification, Spin } from 'antd';
+import { Form, Input, Modal, Row, Col, notification, Spin, Select } from 'antd';
 import PrimaryBtn from '../PrimaryBtn';
 import './levelPage.css';
 import { baseUrl } from '../../request';
@@ -16,18 +16,18 @@ const StartQuize = ({ questions, levelID, userId }) => {
         form.resetFields();
         setOpen(true);
     };
+
+    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+
     const onFinish = async (val) => {
         setLoading(true);
         const payload = {
             levelID: levelID,
-            _id: userId,
-            questionsAnswer: val
+            email: userDetails.email,
+            answers: Object.values(val)
         }
-        const response = await fetch(`${baseUrl}/completelevel`, {
+        const response = await fetch(`${baseUrl}/levelsubmit`, {
             method: "POST",
-            mode: 'no-cors',
-            cache: "no-cache",
-            credentials: "same-origin",
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const StartQuize = ({ questions, levelID, userId }) => {
             body: JSON.stringify(payload),
         }).then(res => res.json()) || {};
 
-        if (response.message === "Incorrect answers") {
+        if (response.message === "Level Not Completed") {
             Modal.error({
                 title: 'Incorrect answers!',
                 content: 'please try again...',
@@ -48,15 +48,15 @@ const StartQuize = ({ questions, levelID, userId }) => {
                 content: 'please try again...',
             });
         }
-        else if (response.email) {
+        else if (response.message==="Level Completed") {
             notification.success({
                 message: 'Level completed successfully',
             })
-            setLoading(false);
-            setOpen(false);
             console.log(val);
-            navigate(`/dashboard/level/${Number(levelID) + 1}`);
+            navigate(`/dashboard`);
         }
+        setOpen(false);
+        setLoading(false);
     }
     return (
         <div className='quizemodal'>
@@ -80,19 +80,47 @@ const StartQuize = ({ questions, levelID, userId }) => {
                         form={form}
                         layout="vertical"
                         onFinish={onFinish}
-                        initialValues={null}
                     >
 
-                        {questions.map((item) =>
-                            <Form.Item name={item.question} label={item.question}
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: '',
-                                    },
-                                ]} tooltip="This is a required field">
-                                <Input placeholder="enter answer..." />
-                            </Form.Item>
+                        {questions.map((item) => {
+                            if (item.type === "keyword check") {
+                                return (<Form.Item name={item.question} label={item.question}
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: '',
+                                        },
+                                    ]} tooltip="This is a required field">
+                                    <Input placeholder="enter answer..." />
+                                </Form.Item>);
+                            }
+                            else if (item.type === 'option') {
+                                return (<Form.Item name={item.question} label={item.question}
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: '',
+                                        },
+                                    ]} tooltip="This is a required field">
+
+                                    <select>
+                                        <option value="">I identify as</option>
+                                        {item.options.map(val => <option value={val}>{val}</option>)}
+                                    </select>
+                                </Form.Item>)
+                            }
+                            else if (item.type === "charlength") {
+                                return (<Form.Item name={item.question} label={item.question}
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: '',
+                                        },
+                                    ]} tooltip="This is a required field">
+                                    <Input placeholder="enter answer..." />
+                                </Form.Item>);
+                            }
+                        }
                         )}
 
                         <Form.Item>

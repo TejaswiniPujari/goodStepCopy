@@ -149,3 +149,7 @@
         padding: 20px 66px;
     }
 }
+
+:where(.css-dev-only-do-not-override-nnuwmp).ant-menu-overflow{
+    justify-content: flex-end;
+}

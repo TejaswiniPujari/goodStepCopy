@@ -34,7 +34,7 @@
 }
 
 .level-page-lno {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     background: #9F46E5;
     /* width: 100px; */
@@ -113,7 +113,7 @@
 
 @media (max-width: 600px) {
     .level-page-content {
-        padding: 20px 10px;
+        padding: 20px 0px;
     }
 
     .level-page-title {

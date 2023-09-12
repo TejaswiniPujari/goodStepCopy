@@ -4,8 +4,8 @@ import './login.css';
 import { useState } from 'react';
 import { baseUrl } from '../../request';
 
-const Login1 = ({ onFinish, onFinishFailed, loading }) => {
-    const [steps, setSteps] = useState(1);
+const Register = ({ onFinish, onFinishFailed, loading }) => {
+    const [steps, setSteps] = useState(Number(localStorage.getItem('stepNumber')));
     const [userInfo, setUserInfo] = useState({});
     const [acceptPolicy, setAcceptPolicy] = useState(false);
 
@@ -14,24 +14,21 @@ const Login1 = ({ onFinish, onFinishFailed, loading }) => {
         if (step === 5) {
             const response = await fetch(`${baseUrl}/register`, {
                 method: "POST",
-                mode: 'no-cors',
-                cache: "no-cache",
-                credentials: "same-origin",
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({ ...data, ...val }),
-            }).then(res => res.json()) || {};
+            }).then(res => res.json());
 
-            if (response.message === "Failed to create user") {
+            if (response.error === "Failed to create user") {
                 Modal.error({
                     title: 'Failed to create user',
                     content: 'please try again...',
                 });
             }
-            else if (response.message === "User Already Existed") {
+            else if (response.error === "User Already Existed") {
                 Modal.info({
                     title: 'User Already Existed',
                     content: 'please login...',
@@ -162,7 +159,6 @@ const Login1 = ({ onFinish, onFinishFailed, loading }) => {
                             ]}
                         >
                             <DatePicker className='step3-inputBox' />
-                            {/* <input placeholder=' Date of birth' /> */}
                         </Form.Item>
                         <Form.Item>
                             <div className='center'><button className='step3-primary-button' type="primary" htmlType="submit">Next</button></div>
@@ -193,7 +189,9 @@ const Login1 = ({ onFinish, onFinishFailed, loading }) => {
                                 placeholder='I identify as' className='step2-inputBox'
                             >
                                 <option value="">I identify as</option>
-                                <option value="Salaried">Salaried</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
                             </select>
                         </Form.Item>
                         <Form.Item
@@ -209,7 +207,10 @@ const Login1 = ({ onFinish, onFinishFailed, loading }) => {
                                 placeholder='I live in' className='step2-inputBox'
                             >
                                 <option value="">I live in</option>
-                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Bengaluru">Bengaluru</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Pan-India">Pan-India</option>
                             </select>
                         </Form.Item>
                         <Form.Item
@@ -225,7 +226,10 @@ const Login1 = ({ onFinish, onFinishFailed, loading }) => {
                                 placeholder='My occupation is' className='step2-inputBox'
                             >
                                 <option value="">My occupation is</option>
-                                <option value="BE">BE</option>
+                                <option value="Student">Student</option>
+                                <option value="Self-Employed">Self-Employed</option>
+                                <option value="Saleried">Saleried</option>
+                                <option value="Social-Worker">Social-Worker</option>
                             </select>
                         </Form.Item>
                         <Form.Item>
@@ -289,4 +293,4 @@ const Login1 = ({ onFinish, onFinishFailed, loading }) => {
     </>)
 }
 
-export default Login1;
+export default Register;
