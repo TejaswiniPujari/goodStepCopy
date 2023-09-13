@@ -9,10 +9,12 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
     const [userInfo, setUserInfo] = useState({});
     const [acceptPolicy, setAcceptPolicy] = useState(false);
     const [emailCheck, setEmailCheck] = useState(false);
+    const [step4FormLoading, setStep4FormLoading] = useState(false);
 
     const updateUserInfo = async (val, step) => {
         const data = userInfo;
         if (step === 5) {
+            setStep4FormLoading(true);
             const response = await fetch(`${baseUrl}/register`, {
                 method: "POST",
                 headers: {
@@ -42,6 +44,7 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
                 })
                 setSteps(5);
             }
+            setStep4FormLoading(false);
         }
         setUserInfo({ ...data, ...val });
     }
@@ -171,27 +174,27 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
                         autoComplete="off"
                     >
                         <Form.Item
-                                name="firstName"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Please input your first name!',
-                                    },
-                                ]}
-                            >
-                                <input placeholder='First Name' className='step2-inputBox' onClick={onClickPreventDefault} />
-                            </Form.Item>
-                            <Form.Item
-                                name="lastName"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Please input your last Name!',
-                                    },
-                                ]}
-                            >
-                                <input placeholder='Last Name' className='step2-inputBox' onClick={onClickPreventDefault} />
-                            </Form.Item>
+                            name="firstName"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your first name!',
+                                },
+                            ]}
+                        >
+                            <input placeholder='First Name' className='step3-inputBox' onClick={onClickPreventDefault} />
+                        </Form.Item>
+                        <Form.Item
+                            name="lastName"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your last Name!',
+                                },
+                            ]}
+                        >
+                            <input placeholder='Last Name' className='step3-inputBox' onClick={onClickPreventDefault} />
+                        </Form.Item>
 
                         <Form.Item
                             name="dob"
@@ -215,72 +218,73 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
             <div className='step2-page'>
                 <div className='login-form'>
                     <div className='step4-title center'>Getting to know you better</div>
-
-                    <Form
-                        onFinish={savestep4Data}
-                        autoComplete="off"
-                    >
-                        <Form.Item
-                            name="identity"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please select identity!',
-                                },
-                            ]}
+                    <Spin spinning={step4FormLoading}>
+                        <Form
+                            onFinish={savestep4Data}
+                            autoComplete="off"
                         >
-                            <select
-                                placeholder='I identify as' className='step2-inputBox'
+                            <Form.Item
+                                name="identity"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please select identity!',
+                                    },
+                                ]}
                             >
-                                <option value="">I identify as</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </Form.Item>
-                        <Form.Item
-                            name="liveIn"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please select location!',
-                                },
-                            ]}
-                        >
-                            <select
-                                placeholder='I live in' className='step2-inputBox'
+                                <select
+                                    placeholder='I identify as' className='step2-inputBox'
+                                >
+                                    <option value="">I identify as</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </Form.Item>
+                            <Form.Item
+                                name="liveIn"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please select location!',
+                                    },
+                                ]}
                             >
-                                <option value="">I live in</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Bengaluru">Bengaluru</option>
-                                <option value="Hyderabad">Hyderabad</option>
-                                <option value="Pan-India">Pan-India</option>
-                            </select>
-                        </Form.Item>
-                        <Form.Item
-                            name="occupation"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please select occupation!',
-                                },
-                            ]}
-                        >
-                            <select
-                                placeholder='My occupation is' className='step2-inputBox'
+                                <select
+                                    placeholder='I live in' className='step2-inputBox'
+                                >
+                                    <option value="">I live in</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Bengaluru">Bengaluru</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Pan-India">Pan-India</option>
+                                </select>
+                            </Form.Item>
+                            <Form.Item
+                                name="occupation"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please select occupation!',
+                                    },
+                                ]}
                             >
-                                <option value="">My occupation is</option>
-                                <option value="Student">Student</option>
-                                <option value="Self-Employed">Self-Employed</option>
-                                <option value="Saleried">Saleried</option>
-                                <option value="Social-Worker">Social-Worker</option>
-                            </select>
-                        </Form.Item>
-                        <Form.Item>
-                            <div className='center'>
-                                <button className='step2-primary-button' type="primary" htmlType="submit">Submit</button></div>
-                        </Form.Item>
-                    </Form>
+                                <select
+                                    placeholder='My occupation is' className='step2-inputBox'
+                                >
+                                    <option value="">My occupation is</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Self-Employed">Self-Employed</option>
+                                    <option value="Saleried">Saleried</option>
+                                    <option value="Social-Worker">Social-Worker</option>
+                                </select>
+                            </Form.Item>
+                            <Form.Item>
+                                <div className='center'>
+                                    <button className='step2-primary-button' type="primary" htmlType="submit">Submit</button></div>
+                            </Form.Item>
+                        </Form>
+                    </Spin>
                 </div>
             </div>
         }

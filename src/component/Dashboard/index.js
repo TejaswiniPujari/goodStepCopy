@@ -164,7 +164,7 @@ const Dashboard = () => {
                                 <Row>
                                     {userDetails.levels.length && userDetails.levels.map((element, key) => {
                                         return (
-                                            <Col md={2}>
+                                            <Col xs={4} md={2}>
                                                 <Image src={imgCollection[key]} className={element.levelStatus === "Completed" ? '' : 'grayscale'}></Image>
                                             </Col>)
                                     })}

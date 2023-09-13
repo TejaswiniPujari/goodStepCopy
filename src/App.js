@@ -3,7 +3,7 @@ import HeaderImg from "./img/footer-logo1.png";
 import './component/Home/home.css';
 import Marquee from "react-fast-marquee";
 import SliderImg from './img/home-slides-banner2.png'
-import { Row, Col, Carousel } from "antd";
+import { Row, Col, Carousel,Space,Input,Button } from "antd";
 import PrimaryBtn from './component/PrimaryBtn';
 import Step1Img from './img/step-1.png';
 import Step2Img from './img/step-2.png';
@@ -16,8 +16,10 @@ import star3 from './img/review-star3.png';
 import CardBox from './component/Home/CardBox';
 import arrow from './img/about-arrow.png';
 import PaymentImg from './img/payments.png';
-import { CopyrightOutlined, UserOutlined } from '@ant-design/icons';
+import { CopyrightOutlined, UserOutlined,AudioOutlined } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
+import './component/Login/login.css';
+import { baseUrl } from './request';
 
 const App = () => {
   const slider = useRef(null);
@@ -36,6 +38,21 @@ const App = () => {
     localStorage.setItem("stepNumber", flag);
     navigate('/login-register');
   }
+
+  const onSearch = async(e) => {
+    
+    const response = await fetch(`${baseUrl}/subscribe`, {
+      method: "POST",
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+      body: JSON.stringify({ email:e }),
+  }).then(res => res.json());
+
+    console.log(e)
+  };
 
   return (<>
     <div className="header-bar">
@@ -389,6 +406,17 @@ const App = () => {
     <div className='footer'>
       <div className='footer-s1'>
         <div className='footer-title center'>Enter email to subscribe</div>
+        <Row justify={'center'}>
+          <Col md={8}lg={7}>
+          <Input.Search
+      placeholder="Enter mail id"
+      enterButton="Subscribe"
+      size="large"
+      onSearch={onSearch}
+    />
+          </Col>
+        </Row>
+        <br/>
         <div className='footer-logo center'><img src={HeaderImg} alt='' width={'30%'}></img></div>
         <div className='footer-des center'> GoodStep is a game, where everyone wins - planet, people and you! The platform helps you make a gradual transition to a more sustainable and socially responsible lifestyle - and the best part? We make it easy, non-disruptive, and a fun game you can play with friends!</div>
         <Row justify={'center'}>

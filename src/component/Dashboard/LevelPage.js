@@ -9,7 +9,7 @@ import PrimaryBtn from '../PrimaryBtn';
 
 const LevelPage = () => {
     const params = useParams();
-    const levelNumber = params.levelNumber;
+    const levelNumber = Number(params.levelNumber);
     const userDetails = localStorage.getItem("userDetails");
     const { levels } = JSON.parse(userDetails);
 
@@ -85,7 +85,7 @@ const LevelPage = () => {
                                     </Row>
                                     <br />
                                 </div>)}
-                            {data.levelQuiz.length > 0 && !(data.levelStatus === 'Completed') && (levelNumber > 1 && levels[levelNumber - 2].levelStatus === "Completed") &&
+                            {data.levelQuiz.length > 0 && !(data.levelStatus === 'Completed') && ((levelNumber > 1 && levels[levelNumber - 2].levelStatus === "Completed") || levelNumber === 1) &&
                                 <StartQuize questions={data.levelQuiz} levelID={data.levelID} />
                             }
                             {data.levelStatus === 'Completed' &&
