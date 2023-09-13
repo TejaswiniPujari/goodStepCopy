@@ -48,11 +48,10 @@ const StartQuize = ({ questions, levelID, userId }) => {
                 content: 'please try again...',
             });
         }
-        else if (response.message==="Level Completed") {
+        else if (response.message === "Level Completed") {
             notification.success({
                 message: 'Level completed successfully',
             })
-            console.log(val);
             navigate(`/dashboard`);
         }
         setOpen(false);
@@ -71,7 +70,7 @@ const StartQuize = ({ questions, levelID, userId }) => {
             />
             <Modal
                 open={open}
-                title="Level 1 Quiz"
+                title={`Level ${levelID} Quiz`}
                 footer={null}
                 onCancel={() => { setOpen(false); }}
             >
@@ -102,11 +101,9 @@ const StartQuize = ({ questions, levelID, userId }) => {
                                             message: '',
                                         },
                                     ]} tooltip="This is a required field">
-
-                                    <select>
-                                        <option value="">I identify as</option>
-                                        {item.options.map(val => <option value={val}>{val}</option>)}
-                                    </select>
+                                    <Select placeholder='I identify as'>
+                                        {item.options.map(val => <Select.Option value={val}>{val}</Select.Option>)}
+                                    </Select>
                                 </Form.Item>)
                             }
                             else if (item.type === "charlength") {

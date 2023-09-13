@@ -8,6 +8,7 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
     const [steps, setSteps] = useState(Number(localStorage.getItem('stepNumber')));
     const [userInfo, setUserInfo] = useState({});
     const [acceptPolicy, setAcceptPolicy] = useState(false);
+    const [emailCheck, setEmailCheck] = useState(false);
 
     const updateUserInfo = async (val, step) => {
         const data = userInfo;
@@ -45,10 +46,13 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
         setUserInfo({ ...data, ...val });
     }
 
-    const savestep2Data = (val) => {
+    const savestep2Data = async (val) => {
         if (acceptPolicy) {
-            updateUserInfo(val, 3);
-            setSteps(3);
+            const checked = await checkEmailAlreadyExitOrNot(val.email);
+            if (checked) {
+                updateUserInfo(val, 3);
+                setSteps(3);
+            }
         }
         else {
             alert('select checkbox')
@@ -63,7 +67,34 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
     const savestep4Data = (val) => {
         updateUserInfo(val, 5);
     }
+    const emailValidation = '/^[A-Za-z0-9+_.-]+@(.+)$/';
 
+    const checkEmailAlreadyExitOrNot = async (email) => {
+        setEmailCheck(true);
+        const response = await fetch(`${baseUrl}/checkEmail`, {
+            method: "POST",
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ email: email }),
+        }).then(res => res.json());
+
+        if (response.message === "User already exists..!! Try another Email Id ") {
+            Modal.error({
+                title: 'User already exists..!!',
+                content: 'Try another Email Id...',
+            });
+        }
+        else if (response.message === "Valid Email") {
+        }
+        setEmailCheck(false);
+        return response.message === "Valid Email" ? true : false;
+    }
+    const onClickPreventDefault = (e) => {
+        e.preventDefault();
+    }
     return (<>
         {steps === 1 &&
             <div className='step1-page'>
@@ -84,47 +115,49 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
                         onFinish={savestep2Data}
                         autoComplete="off"
                     >
-                        <Form.Item
-                            name="email"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your email!',
-                                },
-                            ]}
-                        >
-                            <input type='email' placeholder='Email ID' className='step2-inputBox' />
-                        </Form.Item>
-                        <Form.Item
-                            name="username"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your username!',
-                                },
-                            ]}
-                        >
-                            <input placeholder=' Username' className='step2-inputBox' />
-                        </Form.Item>
-
-                        <Form.Item
-                            name="password"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your password!',
-                                },
-                            ]}
-                        >
-                            <input type='password' placeholder=' Password' className='step2-inputBox' />
-                        </Form.Item>
-                        <Form.Item>
-                            <Checkbox onChange={(e) => { setAcceptPolicy(e.target.checked) }}> I understand and accept the Terms and Conditions and Privacy Policy</Checkbox>
-                        </Form.Item>
-                        <Form.Item>
-                            <div className='center'>
-                                <button className='step2-primary-button' type="primary" htmlType="submit">Submit</button></div>
-                        </Form.Item>
+                        <Spin spinning={emailCheck}>
+                            <Form.Item
+                                name="email"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your email!',
+                                        // pattern: new RegExp(emailValidation),
+                                    },
+                                ]}
+                            >
+                                <input type='email' placeholder='Email ID' className='step2-inputBox' onClick={onClickPreventDefault} />
+                            </Form.Item>
+                            <Form.Item
+                                name="username"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your username!',
+                                    },
+                                ]}
+                            >
+                                <input placeholder='Username' className='step2-inputBox' onClick={onClickPreventDefault} />
+                            </Form.Item>
+                            <Form.Item
+                                name="password"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your password!',
+                                    },
+                                ]}
+                            >
+                                <input type='password' placeholder=' Password' className='step2-inputBox' onClick={onClickPreventDefault} />
+                            </Form.Item>
+                            <Form.Item>
+                                <Checkbox onChange={(e) => { setAcceptPolicy(e.target.checked) }}> I understand and accept the Terms and Conditions and Privacy Policy</Checkbox>
+                            </Form.Item>
+                            <Form.Item>
+                                <div className='center'>
+                                    <button className='step2-primary-button' type="primary" htmlType="submit">Submit</button></div>
+                            </Form.Item>
+                        </Spin>
                     </Form>
                 </div>
             </div>
@@ -138,16 +171,27 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
                         autoComplete="off"
                     >
                         <Form.Item
-                            name="name"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your name!',
-                                },
-                            ]}
-                        >
-                            <input placeholder='Your name' className='step3-inputBox' />
-                        </Form.Item>
+                                name="firstName"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your first name!',
+                                    },
+                                ]}
+                            >
+                                <input placeholder='First Name' className='step2-inputBox' onClick={onClickPreventDefault} />
+                            </Form.Item>
+                            <Form.Item
+                                name="lastName"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your last Name!',
+                                    },
+                                ]}
+                            >
+                                <input placeholder='Last Name' className='step2-inputBox' onClick={onClickPreventDefault} />
+                            </Form.Item>
 
                         <Form.Item
                             name="dob"
@@ -280,7 +324,7 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
                                     },
                                 ]}
                             >
-                                <input placeholder='Password' className='step3-inputBox' />
+                                <input type='password' placeholder='Password' className='step3-inputBox' />
                             </Form.Item>
                             <Form.Item>
                                 <div className='center'><button className='step3-primary-button' type="primary" htmlType="submit">Log In</button></div>

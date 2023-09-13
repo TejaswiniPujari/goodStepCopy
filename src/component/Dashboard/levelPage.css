@@ -1,6 +1,6 @@
 .level-page-content {
-    background: #C4C4C4;
-    padding: 20px 100px;
+    background: #ebeaea;
+    padding: 22px 50px;
 }
 
 .level-page-left-part {
@@ -43,12 +43,14 @@
     color: white;
     padding: 3px;
 }
-.badgeimg{
+
+.badgeimg {
     margin-left: 10px;
     position: relative;
     top: -4px;
 }
-.levelsteps{
+
+.levelsteps {
     padding-bottom: 20px;
 }
 
@@ -139,4 +141,12 @@
     .level-page-left-part {
         margin-top: -188px;
     }
+}
+
+:where(.css-dev-only-do-not-override-nnuwmp).ant-tag{
+    font-size: 16px;
+    border-radius: 12px;
+    padding: 5px;
+    min-width: 100px;
+    text-align: center;
 }

@@ -17,7 +17,7 @@ import CardBox from './component/Home/CardBox';
 import arrow from './img/about-arrow.png';
 import PaymentImg from './img/payments.png';
 import { CopyrightOutlined, UserOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const App = () => {
   const slider = useRef(null);
@@ -32,26 +32,40 @@ const App = () => {
   //     zoomElement.style.transform = `scale(${zoom -= ZOOM_SPEED})`;
   // });
 
-const goToLoginRegisterPage=(flag)=>{
-  localStorage.setItem("stepNumber",flag);
-  navigate('/login-register');
-}
+  const goToLoginRegisterPage = (flag) => {
+    localStorage.setItem("stepNumber", flag);
+    navigate('/login-register');
+  }
 
   return (<>
     <div className="header-bar">
       <Row align={'middle'} justify={'space-between'}>
-        <Col xs={12} md={20}><img src={HeaderImg} alt="" className="Headerlogo"></img></Col>
-       <Col xs={8} md={4}>
-        <Row>
-          <Col span={12}>
-          <button onClick={() => goToLoginRegisterPage(6)} className='l-r'>Login</button>
-          </Col>
-          <Col span={12}>
-          <button onClick={() => goToLoginRegisterPage(1)} className='l-r'>Register</button>
-          </Col>
-        </Row>
+        <Col xs={12} md={20}>
+          <NavLink to={localStorage.getItem("logged") === 'true' ? '/dashboard' : '/'}>
+            <img src={HeaderImg} alt="" className="Headerlogo"></img>
+          </NavLink>
         </Col>
-       </Row>
+        <Col xs={8} md={4}>
+          <Row>
+            {localStorage.getItem("logged") === 'true' ?
+              <Col span={24}>
+                <NavLink to={'/dashboard'}>
+                  <button className='l-r'>Go To Dashboard</button>
+                </NavLink>
+              </Col>
+              :
+              <>
+                <Col span={12}>
+                  <button onClick={() => goToLoginRegisterPage(6)} className='l-r'>Login</button>
+                </Col>
+                <Col span={12}>
+                  <button onClick={() => goToLoginRegisterPage(1)} className='l-r'>Register</button>
+                </Col>
+              </>
+            }
+          </Row>
+        </Col>
+      </Row>
     </div>
     <Marquee speed={200}>
       <div className="home-slides-banner"><img src={SliderImg} alt="" height={'350px'} width={'100%'}></img></div>
@@ -244,18 +258,15 @@ const goToLoginRegisterPage=(flag)=>{
       </div>
     </div>
     <div className='s5'>
-      <Carousel>
-        <Row>
-          <Col xs={24} md={0}>
+
+      <Row>
+        <Col xs={24} md={0} lg={0} xl={0} xxl={0}>
+          <Carousel>
             <div><CardBox
               starImg={star1}
               title='Floyd Miles'
               description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
             /></div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={24} md={0}>
             <div>
               <CardBox
                 starImg={star2}
@@ -263,10 +274,6 @@ const goToLoginRegisterPage=(flag)=>{
                 description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
               />
             </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={24} md={0}>
             <div>
               <CardBox
                 starImg={star3}
@@ -274,67 +281,103 @@ const goToLoginRegisterPage=(flag)=>{
                 description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
               />
             </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={0} md={24}>
-            <div>
-              <Row justify={'space-between'} gutter={[16, 16]}>
-                <Col span={8}>
-                  <CardBox
-                    starImg={star1}
-                    title='Floyd Miles'
-                    description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                  />
-                </Col>
-                <Col span={8}>
-                  <CardBox
-                    starImg={star2}
-                    title='Ronald Richards'
-                    description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                  />
-                </Col>
-                <Col span={8}>
-                  <CardBox
-                    starImg={star3}
-                    title='Savannah Nguyen'
-                    description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                  />
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={0} md={24}>
-            <div>
-              <Row justify={'space-between'} gutter={[16, 16]}>
-                <Col span={8}>
-                  <CardBox
-                    starImg={star2}
-                    title='Ronald Richards'
-                    description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                  />
-                </Col>
-                <Col span={8}>
-                  <CardBox
-                    starImg={star3}
-                    title='Savannah Nguyen'
-                    description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                  />
-                </Col>
-                <Col span={8}>
-                  <CardBox
-                    starImg={star1}
-                    title='Floyd Miles'
-                    description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                  />
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-      </Carousel>
+          </Carousel>
+        </Col>
+        <Col xs={0} md={24} lg={0} xl={0} xxl={0}>
+          <Carousel>
+          <div>
+            <Row gutter={[32,32]}>
+              <Col span={12}>
+                <CardBox
+                  starImg={star1}
+                  title='Floyd Miles'
+                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+              <Col span={12}>
+                <CardBox
+                  starImg={star2}
+                  title='Ronald Richards'
+                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+            </Row>
+          </div>
+          <div>
+            <Row gutter={[32,32]}>
+              <Col span={12}>
+                <CardBox
+                  starImg={star2}
+                  title='Ronald Richards'
+                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+              <Col span={12}>
+                <CardBox
+                  starImg={star3}
+                  title='Savannah Nguyen'
+                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+            </Row>
+          </div>
+          </Carousel>
+        </Col>
+        <Col xs={0} md={0} lg={24} xl={24} xxl={24}>
+          <Carousel>
+          <div>
+            <Row gutter={[32,32]}>
+              <Col span={8}>
+                <CardBox
+                  starImg={star1}
+                  title='Floyd Miles'
+                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+              <Col span={8}>
+                <CardBox
+                  starImg={star2}
+                  title='Ronald Richards'
+                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+              <Col span={8}>
+                <CardBox
+                  starImg={star3}
+                  title='Savannah Nguyen'
+                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+            </Row>
+          </div>
+          <div>
+            <Row gutter={[32,32]}>
+              <Col span={8}>
+                <CardBox
+                  starImg={star2}
+                  title='Ronald Richards'
+                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+              <Col span={8}>
+                <CardBox
+                  starImg={star3}
+                  title='Savannah Nguyen'
+                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+              <Col span={8}>
+                <CardBox
+                  starImg={star1}
+                  title='Floyd Miles'
+                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                />
+              </Col>
+            </Row>
+          </div>
+          </Carousel>
+        </Col>
+      </Row>
     </div>
     <div className='s6'>
       <div className='s6-title center'>Ready to make your climate impact?</div>
@@ -357,7 +400,7 @@ const goToLoginRegisterPage=(flag)=>{
           </Col>
           <Col xs={24} md={8} className='footer-m'>
             <div className='footer-title2'>Contact Us</div>
-            <div className='footer-a'><a href='#' className='footer-link'>hello@thegoodstep.com</a></div>
+            <div className='footer-a'><a href="mailto:hello@thegoodstep.com" className='footer-link'>hello@thegoodstep.com</a></div>
           </Col>
           <Col xs={0} md={2}></Col>
           <Col xs={24} md={6}>
@@ -371,7 +414,7 @@ const goToLoginRegisterPage=(flag)=>{
       </div>
       <hr />
       <Row justify={'space-between'} className='footer-bottom'>
-        <Col xs={24} md={12} lg={6} className='footer-title3'>GoodStep <span style={{ color: '#e1dbe8' }}><CopyrightOutlined /> 2023 DEVELOPED </span> BY This is Weird</Col>
+        <Col xs={24} md={12} lg={6} className='footer-title3'><a href='https://www.digitalbuzzers.com/'>GoodStep <span style={{ color: '#e1dbe8' }}><CopyrightOutlined /> 2023 DEVELOPED </span> BY Digital Buzzers</a></Col>
         <Col xs={24} md={8} lg={5} className='center'><img src={PaymentImg} width={'100%'} alt=''></img></Col>
       </Row>
     </div>

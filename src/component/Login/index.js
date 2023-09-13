@@ -9,6 +9,7 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const onFinish = async (values) => {
+        console.log('called')
         setLoading(true);
         const response = await fetch(`${baseUrl}/login`, {
             method: "POST",
@@ -20,13 +21,13 @@ export const Login = () => {
             body: JSON.stringify(values),
         }).then(res => res.json());
 
-        if (response.error === "Invalid credentials") {
+        if (response.message === "Invalid credentials") {
             Modal.error({
                 title: 'Invalid Credentials',
                 content: 'You have entered invalid credentials. please try again...',
             });
         }
-        else if (response.error === "Server error") {
+        else if (response.message === "Server error") {
             Modal.info({
                 title: 'Server Error',
                 content: 'please try again...',
