@@ -287,7 +287,7 @@ const App = () => {
             <div>
               <CardBox
                 starImg={star2}
-                title='Ronald Richards'
+                title='Floyd Miles'
                 description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
               />
             </div>

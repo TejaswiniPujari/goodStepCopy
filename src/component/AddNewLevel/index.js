@@ -24,24 +24,50 @@ const AddNewLevel = () => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
     const [levelDescAdded, setlevelDescAdded] = useState(0);
-    const [levelQuizType, setLevelQuizType] = useState('');
+
     const onFinish = async (values) => {
+        console.log(values)
         setLoading(true);
-        if (values.levelQuiz && values.levelQuiz.length) {
-            const updatedLevelQuiz = values.levelQuiz.map(item => {
-                if (item.type === "keyword check") {
-                    return {
-                        answer: item.answer.split(","),
-                        question: "sgghsh",
-                        type: "keyword check"
-                    }
-                }
-                else {
-                    return item;
+        let clevelQuiz = [];
+        let klevelQuiz = [];
+        let olevelQuiz = [];
+
+        if (values.clevelQuiz) {
+            clevelQuiz = (values.clevelQuiz).map(item => {
+                return {
+                    answer: item.answer,
+                    question: item.question,
+                    type: "charlength"
                 }
             })
-            values.levelQuiz = updatedLevelQuiz;
         }
+        if (values.klevelQuiz) {
+            klevelQuiz = (values.klevelQuiz).map(item => {
+                return {
+                    answer: item.answer,
+                    question: item.question,
+                    type: "keyword check"
+                }
+            })
+        }
+        if (values.olevelQuiz) {
+            olevelQuiz = (values.olevelQuiz).map(item => {
+                return {
+                    answer: item.answer,
+                    question: item.question,
+                    type: "option",
+                    options: item.options.split(",")
+                }
+            })
+        }
+        values.levelQuiz = [...clevelQuiz, ...klevelQuiz, ...olevelQuiz];
+
+        // delete values[clevelQuiz];
+        // delete values[klevelQuiz];
+        // delete values[olevelQuiz];
+
+        console.log(values)
+
         const response = await fetch(`${baseUrl}/addLevel`, {
             method: "POST",
             headers: {
@@ -66,11 +92,15 @@ const AddNewLevel = () => {
         }
         setLoading(false);
     };
+
     const onReset = () => {
         form.resetFields();
     };
+
     return (
         <div className='all-level'>
+            <h1 style={{textAlign:'center'}}>Add New Leavel</h1>
+            <br/>
             <Spin spinning={loading}>
                 <Row justify={'center'} >
                     <Col span={14}>
@@ -88,8 +118,9 @@ const AddNewLevel = () => {
                                         required: true,
                                     },
                                 ]}
+                                tooltip="if you want to enter level 1 details then enter 1 like wise for level2 details enter 2 "
                             >
-                                <Input />
+                                <InputNumber />
                             </Form.Item>
                             <Form.Item
                                 name="levelName"
@@ -110,6 +141,7 @@ const AddNewLevel = () => {
                                         required: true,
                                     },
                                 ]}
+                                tooltip="enter time in minute to complete level"
                             >
                                 <InputNumber />
                             </Form.Item>
@@ -121,8 +153,9 @@ const AddNewLevel = () => {
                                         required: true,
                                     },
                                 ]}
+                                tooltip="if you want to enter level 1 bagde then enter 1 like wise for level2 badge enter 2 "
                             >
-                                <Input />
+                                <InputNumber />
                             </Form.Item>
                             <Form.Item
                                 name="levelRewards"
@@ -132,6 +165,7 @@ const AddNewLevel = () => {
                                         required: true,
                                     },
                                 ]}
+                                tooltip="enter short statement related to rewards"
                             >
                                 <Input />
                             </Form.Item>
@@ -143,6 +177,7 @@ const AddNewLevel = () => {
                                         required: true,
                                     },
                                 ]}
+                                tooltip="please select active for level1 other levels as upcoming"
                             >
                                 <Select
                                     placeholder="Select level status"
@@ -161,6 +196,7 @@ const AddNewLevel = () => {
                                         required: true,
                                     },
                                 ]}
+                                tooltip="please select Visible for level1 other levels as Not Visible"
                             >
                                 <Select
                                     placeholder="Select a option and change input text above"
@@ -170,14 +206,6 @@ const AddNewLevel = () => {
                                     <Option value={false}>Not Visible</Option>
                                 </Select>
                             </Form.Item>
-
-
-
-
-
-
-
-
                             <Form.List name="levelDesc">
                                 {(fields, { add, remove }) => (
                                     <div
@@ -296,7 +324,12 @@ const AddNewLevel = () => {
                                 )}
                             </Form.List>
                             <br />
-                            <Form.List name="levelQuiz">
+                            <br />
+                            <div>Add levelQuiz</div>
+                            <br />
+                            <div>Add Keyword Check Questions </div>
+                            <br />
+                            <Form.List name="klevelQuiz">
                                 {(fields, { add, remove }) => (
                                     <div
                                         style={{
@@ -321,27 +354,92 @@ const AddNewLevel = () => {
                                                 <Form.Item label="question" name={[field.name, 'question']}>
                                                     <Input />
                                                 </Form.Item>
-                                                <Form.Item label="type" name={[field.name, 'type']}>
-                                                    <Select
-                                                        placeholder="Select type"
-                                                        allowClear
-                                                        onChange={(type) => { setLevelQuizType(type); console.log(type) }}
-                                                    >
-                                                        <Option value="keyword check">keyword check</Option>
-                                                        <Option value="option">options</Option>
-                                                        <Option value="charlength">charlength</Option>
-                                                    </Select>
+                                                <Form.Item label={"Enter Answer seperted by ,"} name={[field.name, 'answer']}>
+                                                    <Input />
                                                 </Form.Item>
-                                                {levelQuizType &&
-                                                    <Form.Item label={levelQuizType === "charlength" ? "Enter min char length" : "Enter Answer seperted by ,"} name={[field.name, 'answer']}>
-                                                        {(levelQuizType === "keyword check" || levelQuizType === "option") &&
-                                                            <Input />
-                                                        }
-                                                        {(levelQuizType === "charlength") &&
-                                                            <InputNumber />
-                                                        }
-                                                    </Form.Item>
+                                            </Card>
+                                        ))}
+
+                                        <Button type="dashed" onClick={() => add()} block>
+                                            + Add Question
+                                        </Button>
+                                    </div>
+                                )}
+                            </Form.List>
+                            <br />
+                            <div>Add Options Type Questions </div>
+                            <br />
+                            <Form.List name="olevelQuiz">
+                                {(fields, { add, remove }) => (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            rowGap: 16,
+                                            flexDirection: 'column',
+                                        }}
+                                    >
+                                        {fields.map((field) => (
+                                            <Card
+                                                size="small"
+                                                title={`Question ${field.name + 1}`}
+                                                key={field.key}
+                                                extra={
+                                                    <CloseOutlined
+                                                        onClick={() => {
+                                                            remove(field.name);
+                                                        }}
+                                                    />
                                                 }
+                                            >
+                                                <Form.Item label="question" name={[field.name, 'question']}>
+                                                    <Input />
+                                                </Form.Item>
+                                                <Form.Item label={"Enter Options list seperted by ,"} name={[field.name, 'options']}>
+                                                    <Input />
+                                                </Form.Item>
+                                                <Form.Item label={"Enter correct option"} name={[field.name, 'answer']}>
+                                                    <Input />
+                                                </Form.Item>
+                                            </Card>
+                                        ))}
+
+                                        <Button type="dashed" onClick={() => add()} block>
+                                            + Add Question
+                                        </Button>
+                                    </div>
+                                )}
+                            </Form.List>
+                            <br />
+                            <div>Add Charlength Type Questions </div>
+                            <br />
+                            <Form.List name="clevelQuiz">
+                                {(fields, { add, remove }) => (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            rowGap: 16,
+                                            flexDirection: 'column',
+                                        }}
+                                    >
+                                        {fields.map((field) => (
+                                            <Card
+                                                size="small"
+                                                title={`Question ${field.name + 1}`}
+                                                key={field.key}
+                                                extra={
+                                                    <CloseOutlined
+                                                        onClick={() => {
+                                                            remove(field.name);
+                                                        }}
+                                                    />
+                                                }
+                                            >
+                                                <Form.Item label="question" name={[field.name, 'question']}>
+                                                    <Input />
+                                                </Form.Item>
+                                                <Form.Item label={"Enter min char length"} name={[field.name, 'answer']}>
+                                                    <InputNumber />
+                                                </Form.Item>
                                             </Card>
                                         ))}
 

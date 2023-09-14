@@ -1,4 +1,3 @@
-import banner from '../../img/food-page-title.jpg';
 import { Row, Col, Image, Tag } from "antd";
 import './levelPage.css';
 import { NavLink, useParams } from "react-router-dom";
@@ -6,19 +5,32 @@ import DashboardHeader from './DashboardHeader';
 import StartQuize from './StartQuize';
 import YoutubeEmbed from '../YoutubeEmbed';
 import PrimaryBtn from '../PrimaryBtn';
+import banner1 from '../../img/levelPageBanner/1.jpg';
+import banner2 from '../../img/levelPageBanner/2.jpg';
+import banner3 from '../../img/levelPageBanner/3.jpg';
+import banner4 from '../../img/levelPageBanner/4.jpg';
+import banner5 from '../../img/levelPageBanner/5.jpg';
+import banner6 from '../../img/levelPageBanner/6.jpg';
+import banner7 from '../../img/levelPageBanner/7.jpeg';
+import banner8 from '../../img/levelPageBanner/8.jpg';
+import banner9 from '../../img/levelPageBanner/9.jpg';
+import banner10 from '../../img/levelPageBanner/10.png';
+
+
 
 const LevelPage = () => {
     const params = useParams();
     const levelNumber = Number(params.levelNumber);
     const userDetails = localStorage.getItem("userDetails");
     const { levels } = JSON.parse(userDetails);
+    const banner = [banner1, banner2, banner3, banner4, banner5, banner6, banner7, banner8, banner9, banner10];
 
     const data = levels[levelNumber - 1];
 
     return (<>
         <DashboardHeader />
         <div>
-            <img src={banner} alt="" width={'100%'}></img>
+            <img src={banner[data.levelID-1]} alt="" width={'100%'} className="level-page-banner-img"></img>
         </div>
         <div className="level-page-content">
             <Row>
@@ -79,7 +91,7 @@ const LevelPage = () => {
                                             {item.videoUrl ?
                                                 <YoutubeEmbed embedId={item.videoUrl.split("=")[1]} />
                                                 :
-                                                <Image src={item.imgUrl} width={100} preview={false} />
+                                                <Image src={item.imgUrl}  preview={false} />
                                             }
                                         </Col>
                                     </Row>

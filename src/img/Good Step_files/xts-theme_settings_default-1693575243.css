@@ -33,7 +33,7 @@
 --wd-entities-title-font:"GILROY-SEMIBOLD", Arial, Helvetica, sans-serif;
 --wd-entities-title-font-weight:600;
 --wd-entities-title-color:rgb(103,88,242);
---wd-entities-title-color-hover:rgb(103, 88, 242);
+--wd-entities-title-color-hover:#6758F2;
 }
 :root{
 --wd-alternative-font:"GILROY-SEMIBOLD", Arial, Helvetica, sans-serif;

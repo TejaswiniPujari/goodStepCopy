@@ -112,12 +112,16 @@
     border-radius: 10px;
     margin-bottom: 30px;
 }
-
+.level-page-banner-img{
+    height: 25vw;
+}
 @media (max-width: 600px) {
     .level-page-content {
-        padding: 20px 0px;
+        padding: 0px;
     }
-
+    .level-page-banner-img{
+        height: 40vw;
+    }
     .level-page-title {
         font-size: 22px;
         padding: 10px 0;
@@ -125,6 +129,7 @@
 
     .level-page-left-part {
         margin-top: 0;
+        padding: 0 20px;
     }
 }
 
@@ -139,7 +144,8 @@
     }
 
     .level-page-left-part {
-        margin-top: -188px;
+        margin-top: 0;
+        padding: 0 20px;
     }
 }
 

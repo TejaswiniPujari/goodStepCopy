@@ -1,5 +1,5 @@
 .header-bar {
-    background: rgb(103, 88, 242);
+    background: #6758F2;
     padding: 10px;
     text-align: center;
 }
@@ -12,7 +12,7 @@
 
 .homePage-title {
     font-size: 46px;
-    color: rgb(103, 88, 242);
+    color: #6758F2;
     font-weight: bold;
     position: relative;
     top: -10px;
@@ -20,7 +20,7 @@
 
 .homePage-des {
     font-size: 20px;
-    color: rgb(103, 88, 242);
+    color: #5F4FA1;
     line-height: 29px;
     margin-bottom: 20px;
     font-weight: 500;
@@ -38,7 +38,7 @@
 
 .homePage-title-s2 {
     font-size: 150px;
-    color: rgb(103, 88, 242);
+    color: #6758F2;
     font-weight: bold;
     position: relative;
     top: -50px;
@@ -110,7 +110,7 @@
 .s4-des {
     font-size: 23px;
     text-align: center;
-    color: #7c6ff4;
+    color: #5F4FA1;
     font-weight: 500;
 }
 
@@ -240,7 +240,7 @@
     width: 50vw;
     margin: 0 auto;
     font-size: 20px;
-    color: #6758f2;
+    color: #5F4FA1;
     margin-bottom: 50px;
 }
 
@@ -250,7 +250,7 @@
 }
 
 .footer {
-    background: #684ba5;
+    background: #6758F2;
 }
 
 .footer-s1 {
@@ -419,9 +419,11 @@
         width: 150px;
         margin: auto;
     }
+
     .l-r {
         font-size: 14px;
     }
+
     .card-des {
         font-size: 12px;
     }

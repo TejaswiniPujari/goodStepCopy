@@ -204,3 +204,7 @@
         font-size: 29px;
     }
 }
+.ant-dropdown-menu {
+    max-height: 250px;
+    overflow: auto;
+}

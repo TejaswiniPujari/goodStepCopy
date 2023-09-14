@@ -148,7 +148,7 @@ const Dashboard = () => {
                                 <Row align={'middle'}>
                                     <Col xs={6} md={4} lg={2}>
                                         {/* <img src={userImg} alt='' width={'80%'} style={{ borderRadius: '50%' }}></img> */}
-                                        <div className='profileName'>{userDetails.firstName.split("")[0]}{userDetails.lastName.split("")[0]}</div>
+                                        <div className='profileName'>{(userDetails.firstName.split("")[0]).toUpperCase()}{(userDetails.lastName.split("")[0]).toUpperCase()}</div>
                                     </Col>
                                     <Col xs={12} md={16} lg={20} className='dashboard-welcome-txt'>
                                         Hello {userDetails ? userDetails.firstName : ''}, Welcome!
@@ -162,7 +162,7 @@ const Dashboard = () => {
                             <div className='all-level-list'>
                                 <div className='all-levels-txt'>Badges You Have Won</div>
                                 <Row>
-                                    {userDetails.levels.length && userDetails.levels.map((element, key) => {
+                                    {userDetails.levels && userDetails.levels.map((element, key) => {
                                         return (
                                             <Col xs={4} md={2}>
                                                 <Image src={imgCollection[key]} className={element.levelStatus === "Completed" ? '' : 'grayscale'}></Image>

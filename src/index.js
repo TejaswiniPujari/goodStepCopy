@@ -7,6 +7,7 @@ import LevelPage from './component/Dashboard/LevelPage';
 import Dashboard from './component/Dashboard';
 import{ Login} from './component/Login';
 import AddNewLevel from './component/AddNewLevel';
+import UpdateNewLevel from './component/UpdateLevel';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path='/login-register' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/dashboard/level/:levelNumber' element={<LevelPage />} />
+        <Route path='/updateLevelDetails/:levelNumber' element={<UpdateNewLevel />} />
         <Route path='/addnewlevel' element={<AddNewLevel/>} />
       </Routes>
     </BrowserRouter>

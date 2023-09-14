@@ -1,12 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.1cde57b5.css",
-    "main.js": "/static/js/main.7900423c.js",
+    "main.js": "/static/js/main.e0788958.js",
     "static/media/home-slides-banner2.png": "/static/media/home-slides-banner2.d0139ca7020e81ecc017.png",
+    "static/media/8.jpg": "/static/media/8.afdd44c5ab868db2deb4.jpg",
+    "static/media/10.png": "/static/media/10.9dc00d8ea7904dbf02c8.png",
     "static/media/half-circle.png": "/static/media/half-circle.52dba5283e853bfadbf8.png",
+    "static/media/7.jpeg": "/static/media/7.c26eb938d34a74bda4be.jpeg",
+    "static/media/3.jpg": "/static/media/3.248391aecf9140539505.jpg",
     "static/media/food-page-title.jpg": "/static/media/food-page-title.4c418bd36949827d3a1e.jpg",
     "static/media/8.png": "/static/media/8.4459414b98590f692842.png",
-    "static/media/10.png": "/static/media/10.9dc00d8ea7904dbf02c8.png",
     "static/media/6.png": "/static/media/6.8722a736e05d05b999a5.png",
     "static/media/3.png": "/static/media/3.09eefba031eb00fd95d5.png",
     "static/media/9.png": "/static/media/9.626fe5b0023de6621b1c.png",
@@ -15,7 +18,13 @@
     "static/media/5.png": "/static/media/5.8ba7ce2a211b6fc1dfb9.png",
     "static/media/7.png": "/static/media/7.e728c9f1059405244a4f.png",
     "static/media/1.png": "/static/media/1.142cc5d3e0c22c2dba8b.png",
+    "static/media/4.jpg": "/static/media/4.29703708d2a331411466.jpg",
+    "static/media/2.jpg": "/static/media/2.c19a4e915f3d192a5cd0.jpg",
+    "static/media/5.jpg": "/static/media/5.29000cf459f58a0d2db8.jpg",
+    "static/media/1.jpg": "/static/media/1.ec3f9a0bbb858f30522b.jpg",
+    "static/media/9.jpg": "/static/media/9.548f43b6b61fdb3cac31.jpg",
     "static/media/newevent.jpg": "/static/media/newevent.8848c14576ea35846014.jpg",
+    "static/media/6.jpg": "/static/media/6.e1e708265acd8e3490a0.jpg",
     "static/media/step1.png": "/static/media/step1.0cdd5a95bad89a1ad6cf.png",
     "static/media/step-3.png": "/static/media/step-3.7f3fa752bbfc77e28aa2.png",
     "static/media/crop-farmer1.jpg": "/static/media/crop-farmer1.7cc91864eef36209c308.jpg",
@@ -27,10 +36,10 @@
     "static/media/level1.jpg": "/static/media/level1.fb01beb9f4a25e94c140.jpg",
     "index.html": "/index.html",
     "main.1cde57b5.css.map": "/static/css/main.1cde57b5.css.map",
-    "main.7900423c.js.map": "/static/js/main.7900423c.js.map"
+    "main.e0788958.js.map": "/static/js/main.e0788958.js.map"
   },
   "entrypoints": [
     "static/css/main.1cde57b5.css",
-    "static/js/main.7900423c.js"
+    "static/js/main.e0788958.js"
   ]
 }
