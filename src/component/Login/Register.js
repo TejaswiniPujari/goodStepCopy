@@ -2,6 +2,7 @@
 import { Checkbox, Form, DatePicker, Spin, notification, Modal } from 'antd';
 import './login.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../../request';
 
 const Register = ({ onFinish, onFinishFailed, loading }) => {
@@ -10,6 +11,7 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
     const [acceptPolicy, setAcceptPolicy] = useState(false);
     const [emailCheck, setEmailCheck] = useState(false);
     const [step4FormLoading, setStep4FormLoading] = useState(false);
+    const navigate = useNavigate();
 
     const updateUserInfo = async (val, step) => {
         const data = userInfo;
@@ -42,9 +44,12 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
                 notification.success({
                     message: 'You successfully complete registration process',
                 })
-                setSteps(5);
+                localStorage.setItem("email",  data.email);
+                localStorage.setItem("logged", 'true');
+                navigate('/dashboard');
             }
             setStep4FormLoading(false);
+            console.log(data,'val.email')
         }
         setUserInfo({ ...data, ...val });
     }

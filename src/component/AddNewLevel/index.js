@@ -23,7 +23,8 @@ const tailLayout = {
 const AddNewLevel = () => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
-
+    const [levelDescAdded, setlevelDescAdded] = useState(0);
+    const [levelQuizType, setLevelQuizType] = useState('');
     const onFinish = async (values) => {
         setLoading(true);
         if (values.levelQuiz && values.levelQuiz.length) {
@@ -55,6 +56,7 @@ const AddNewLevel = () => {
             Modal.success({
                 title: 'You successfully added level',
             });
+            onReset();
         }
         else {
             Modal.error({
@@ -188,12 +190,13 @@ const AddNewLevel = () => {
                                         {fields.map((field) => (
                                             <Card
                                                 size="small"
-                                                title={`level Description ${field.name + 1}`}
+                                                title={`level Description`}
                                                 key={field.key}
                                                 extra={
                                                     <CloseOutlined
                                                         onClick={() => {
                                                             remove(field.name);
+                                                            setlevelDescAdded(levelDescAdded - 1)
                                                         }}
                                                     />
                                                 }
@@ -239,15 +242,16 @@ const AddNewLevel = () => {
                                                 </Form.Item>
                                             </Card>
                                         ))}
-
-                                        <Button type="dashed" onClick={() => add()} block>
-                                            + Add level Description
-                                        </Button>
+                                        {levelDescAdded === 0 &&
+                                            <Button type="dashed" onClick={() => { add(); setlevelDescAdded(levelDescAdded + 1) }} block>
+                                                + Add level Description
+                                            </Button>
+                                        }
                                     </div>
                                 )}
                             </Form.List>
 
-<br/>
+                            <br />
                             <Form.List name="levelSteps">
                                 {(fields, { add, remove }) => (
                                     <div
@@ -291,7 +295,7 @@ const AddNewLevel = () => {
                                     </div>
                                 )}
                             </Form.List>
-<br/>
+                            <br />
                             <Form.List name="levelQuiz">
                                 {(fields, { add, remove }) => (
                                     <div
@@ -321,15 +325,23 @@ const AddNewLevel = () => {
                                                     <Select
                                                         placeholder="Select type"
                                                         allowClear
+                                                        onChange={(type) => { setLevelQuizType(type); console.log(type) }}
                                                     >
                                                         <Option value="keyword check">keyword check</Option>
                                                         <Option value="option">options</Option>
                                                         <Option value="charlength">charlength</Option>
                                                     </Select>
                                                 </Form.Item>
-                                                <Form.Item label="Enter Answer seperted by ," name={[field.name, 'answer']}>
-                                                    <Input />
-                                                </Form.Item>
+                                                {levelQuizType &&
+                                                    <Form.Item label={levelQuizType === "charlength" ? "Enter min char length" : "Enter Answer seperted by ,"} name={[field.name, 'answer']}>
+                                                        {(levelQuizType === "keyword check" || levelQuizType === "option") &&
+                                                            <Input />
+                                                        }
+                                                        {(levelQuizType === "charlength") &&
+                                                            <InputNumber />
+                                                        }
+                                                    </Form.Item>
+                                                }
                                             </Card>
                                         ))}
 
@@ -340,25 +352,7 @@ const AddNewLevel = () => {
                                 )}
                             </Form.List>
 
-<br/>
-                            <Form.Item
-                                name="gender"
-                                label="Gender"
-                                rules={[
-                                    {
-                                        required: true,
-                                    },
-                                ]}
-                            >
-                                <Select
-                                    placeholder="Select a option and change input text above"
-                                    allowClear
-                                >
-                                    <Option value="male">male</Option>
-                                    <Option value="female">female</Option>
-                                    <Option value="other">other</Option>
-                                </Select>
-                            </Form.Item>
+                            <br />
                             <Form.Item {...tailLayout}>
                                 <Button type="primary" htmlType="submit">
                                     Submit
