@@ -1,6 +1,6 @@
 
 import $ from 'jquery';
-export const baseUrl = 'http://13.232.109.80:3000'
+export const baseUrl = 'https://www.devbuzzservers.com'
 
 export async function register(userData) {
   await $.ajax({
