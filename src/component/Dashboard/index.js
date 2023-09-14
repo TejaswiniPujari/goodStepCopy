@@ -17,7 +17,7 @@ import badge8 from '../../img/badge/8.png';
 import badge9 from '../../img/badge/9.png';
 import badge10 from '../../img/badge/10.png';
 import DashboardHeader from './DashboardHeader.js';
-import { NavLink } from 'react-router-dom';
+import { NavLink ,useNavigate} from 'react-router-dom';
 import { baseUrl } from '../../request';
 
 const Dashboard = () => {
@@ -28,7 +28,7 @@ const Dashboard = () => {
     const [status, setStatus] = useState('All');
     const [lcount, setLcount] = useState(0);
     const imgCollection = [badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8, badge9, badge10];
-
+    const navigate = useNavigate();
     const LevelCard = ({ imgLink, title, description, number, visibility }) => {
         return (
             <>
@@ -106,6 +106,8 @@ const Dashboard = () => {
             Modal.error({
                 title: 'User not found',
             });
+            navigate('/');
+            localStorage.setItem("logged", 'false');
         }
         else if (levelCount.count) {
             setLcount(levelCount.count);
