@@ -2,7 +2,8 @@
 import { Checkbox, Form, DatePicker, Spin, notification, Modal, Input } from 'antd';
 import './login.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import logo from '../../img/footer-logo1.png';
 import { baseUrl } from '../../request';
 
 const Register = ({ onFinish, onFinishFailed, loading }) => {
@@ -619,6 +620,11 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
     return (<>
         {steps === 1 &&
             <div className='step1-page'>
+                <div className='logo-img-top'>
+                    <NavLink to={'/'}>
+                        <img src={logo} alt='' width={'100%'} />
+                    </NavLink>
+                </div>
                 <div className='login-form'>
                     <div className='step1-title center'>Hey there! </div>
                     <div className='step1-des center'>We have curated a 3 minute survey to get you started on your GoodStep journey</div>
@@ -628,6 +634,11 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
         }
         {steps === 2 &&
             <div className='step2-page'>
+                <div className='logo-img-top'>
+                    <NavLink to={'/'}>
+                        <img src={logo} alt='' width={'100%'} />
+                    </NavLink>
+                </div>
                 <div className='login-form'>
                     <div className='step2-title center'>Sign up to take action!</div>
                     <div className='step2-des center'>Create your account while we put together do-good actions specially for you!</div>
@@ -685,6 +696,11 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
         }
         {steps === 3 &&
             <div className='login-box'>
+                <div className='logo-img-top'>
+                    <NavLink to={'/'}>
+                        <img src={logo} alt='' width={'100%'} />
+                    </NavLink>
+                </div>
                 <div className='login-form'>
                     <div className='login-title center'>Let's get started! </div>
                     <Form
@@ -734,6 +750,11 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
         }
         {steps === 4 &&
             <div className='step2-page'>
+                <div className='logo-img-top'>
+                    <NavLink to={'/'}>
+                        <img src={logo} alt='' width={'100%'} />
+                    </NavLink>
+                </div>
                 <div className='login-form'>
                     <div className='step4-title center'>Getting to know you better</div>
                     <Spin spinning={step4FormLoading}>
@@ -803,6 +824,11 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
         }
         {steps === 5 &&
             <div className='step1-page'>
+                <div className='logo-img-top'>
+                    <NavLink to={'/'}>
+                        <img src={logo} alt='' width={'100%'} />
+                    </NavLink>
+                </div>
                 <div className='login-form'>
                     <div className='step1-title center'>Welcome!</div>
                     <div className='step1-des center'>You successfully complete registration process</div>
@@ -813,6 +839,11 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
         {steps === 6 &&
             <Spin spinning={loading}>
                 <div className='login-box'>
+                <div className='logo-img-top'>
+                    <NavLink to={'/'}>
+                        <img src={logo} alt='' width={'100%'} />
+                    </NavLink>
+                </div>
                     <div className='login-form'>
                         <div className='login-title center'>Login</div>
                         <Form

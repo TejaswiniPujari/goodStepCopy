@@ -1,5 +1,5 @@
 .dashboard-header {
-    background: #386AA3;  
+    background: linear-gradient(103deg, #6969ec 33.71%, #6e8be1 47.05%, #7097dd 64.95%);  
     padding: 8px 20px;
 }
 
@@ -8,7 +8,7 @@
 :where(.css-nnuwmp).ant-menu-light {
     color: white;
     font-weight: 400;
-    background: #386AA3;  
+    background: transparent;  
     font-size: 15px;
 }
 

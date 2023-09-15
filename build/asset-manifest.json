@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e5cff330.css",
-    "main.js": "/static/js/main.60909845.js",
+    "main.css": "/static/css/main.5db23565.css",
+    "main.js": "/static/js/main.a66ae497.js",
     "static/media/home-slides-banner2.png": "/static/media/home-slides-banner2.d0139ca7020e81ecc017.png",
     "static/media/8.jpg": "/static/media/8.afdd44c5ab868db2deb4.jpg",
     "static/media/10.png": "/static/media/10.9dc00d8ea7904dbf02c8.png",
@@ -16,7 +16,7 @@
     "static/media/4.png": "/static/media/4.475c4c2ac022781029b1.png",
     "static/media/5.png": "/static/media/5.8ba7ce2a211b6fc1dfb9.png",
     "static/media/7.png": "/static/media/7.e728c9f1059405244a4f.png",
-    "static/media/1.png": "/static/media/1.142cc5d3e0c22c2dba8b.png",
+    "static/media/1.png": "/static/media/1.2b55cd28a4ec2304a56d.png",
     "static/media/4.jpg": "/static/media/4.29703708d2a331411466.jpg",
     "static/media/2.jpg": "/static/media/2.c19a4e915f3d192a5cd0.jpg",
     "static/media/Jost-VariableFont_wght.ttf": "/static/media/Jost-VariableFont_wght.34835cd554b7b71732e2.ttf",
@@ -28,19 +28,16 @@
     "static/media/ABeeZee-Italic.ttf": "/static/media/ABeeZee-Italic.abec9dae76eed00f35a6.ttf",
     "static/media/step1.png": "/static/media/step1.0cdd5a95bad89a1ad6cf.png",
     "static/media/step-3.png": "/static/media/step-3.7f3fa752bbfc77e28aa2.png",
-    "static/media/crop-farmer1.jpg": "/static/media/crop-farmer1.7cc91864eef36209c308.jpg",
     "static/media/step-2.png": "/static/media/step-2.d3c448aa91da57179d64.png",
     "static/media/step-1.png": "/static/media/step-1.6c28020359b87a55a96f.png",
-    "static/media/crop-farmer3.jpg": "/static/media/crop-farmer3.42c27fd297faa432d2ee.jpg",
-    "static/media/crop-farmer.jpg": "/static/media/crop-farmer.563352237aa074272709.jpg",
     "static/media/footer-logo1.png": "/static/media/footer-logo1.b49646753298746bb3e5.png",
     "static/media/level1.jpg": "/static/media/level1.fb01beb9f4a25e94c140.jpg",
     "index.html": "/index.html",
-    "main.e5cff330.css.map": "/static/css/main.e5cff330.css.map",
-    "main.60909845.js.map": "/static/js/main.60909845.js.map"
+    "main.5db23565.css.map": "/static/css/main.5db23565.css.map",
+    "main.a66ae497.js.map": "/static/js/main.a66ae497.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5cff330.css",
-    "static/js/main.60909845.js"
+    "static/css/main.5db23565.css",
+    "static/js/main.a66ae497.js"
   ]
 }

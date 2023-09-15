@@ -40,11 +40,11 @@ const LevelPage = () => {
                             <div className="level-page-info-box-top">
                                 <Row gutter={[16, 16]}>
                                     <Col xs={24} md={4}>
-                                        <div className="level-page-lno" style={{ background: 'darkcyan' }}>Level: {data.levelID}</div>
+                                        <div className="level-page-lno" style={{ background: '#6758F2' }}>Level: {data.levelID}</div>
                                     </Col>
-                                    <Col xs={24} md={13}><div className="level-page-lno" style={{ background: 'brown' }}>{data.levelName}</div></Col>
+                                    <Col xs={24} md={13}><div className="level-page-lno" style={{ background: '#845ED2' }}>{data.levelName}</div></Col>
                                     <Col xs={24} md={6}>
-                                        <div className="level-page-lno" style={{ background: 'chocolate' }}>Est-Min: {data.levelEstimateTime} </div>
+                                        <div className="level-page-lno" style={{ background: '#707CD8' }}>Est-Min: {data.levelEstimateTime} </div>
                                     </Col>
                                 </Row>
                                 <Row justify={'space-between'} align={'middle'}>

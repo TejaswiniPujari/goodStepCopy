@@ -111,7 +111,7 @@
 .login-box {
     height: 100vh;
     width: 100vw;
-    background: #fdd500;
+    background: #386AA3;
 }
 
 .center {
@@ -146,8 +146,8 @@
 }
 
 .step3-primary-button {
-    color: white;
-    background: #386AA3;
+    color: black;
+    background: #FDD500;
     width: 100px;
     border-radius: 100px;
     gap: 20px;
@@ -206,4 +206,8 @@
 .ant-dropdown-menu {
     max-height: 250px;
     overflow: auto;
+}
+.logo-img-top{
+    padding: 20px;
+    width: 150px;
 }

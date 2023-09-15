@@ -85,7 +85,7 @@ const UpdateNewLevel = () => {
             body: JSON.stringify(payload),
         }).then(res => res.json());
 
-        if (response.meassage === "Level Updated") {
+        if (response.message === "Level Updated") {
             Modal.success({
                 title: 'You successfully added level',
             });

@@ -16,6 +16,7 @@ import star3 from './img/review-star3.png';
 import CardBox from './component/Home/CardBox';
 import arrow from './img/about-arrow.png';
 import PaymentImg from './img/payments.png';
+import firstSlider from './img/home page slider/1.png';
 import { CopyrightOutlined, UserOutlined, AudioOutlined } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './component/Login/login.css';
@@ -134,7 +135,7 @@ const App = () => {
     {/* <div className="half-circle" id="zoom">
       <img src={HalfCircleImg} alt="" width={'100%'}></img>
     </div> */}
-    <div className="s3">
+    {/* <div className="s3">
       <Row justify={'space-between'}>
         <Col span={1}>
         </Col>
@@ -183,96 +184,104 @@ const App = () => {
           </div>
         </Col>
       </Row>
+    </div> */}
+    <div className="s4-c">
+      <Carousel ref={slider} autoplay dots={null} effect={'fade'}>
+        <div >
+          <div className='contentStyle1'>
+            <Row justify={'space-between'} align={'middle'}>
+              <Col xs={24} md={12} >
+                <img src={firstSlider} width={'100%'} alt=''></img>
+              </Col>
+              <Col xs={24} md={10} className="s4-c-left-section">
+                <div className="s4-c-title">Choose your impact</div>
+                <div className="s4-c-des">Select from a verified list of impacts that are transforming distinct parts of India.</div>
+                {/* <Row>
+                    <Col xs={18} md={10} lg={15}>
+                      <PrimaryBtn
+                        title={'Learn more'}
+                        color={'white'}
+                        background={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'}
+                        backgroundh={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 35%, rgba(9,9,121,1) 100%)'}
+                        colorh={'white'}
+                        border={'none'}
+                      />
+                    </Col>
+                  </Row> */}
+                <Row className="s4-c-dots" justify={'center'}>
+                  <Col span={6}><img src={Step1Img} alt="" width={'80%'} onClick={() => slider.current.goTo(0)}></img></Col>
+                  <Col span={6}><img src={Step2Img} alt="" width={'80%'} onClick={() => slider.current.goTo(1)}></img></Col>
+                  <Col span={6}><img src={Step3Img} alt="" width={'80%'} onClick={() => slider.current.goTo(2)}></img></Col>
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </div>
+        <div>
+          <div className='contentStyle2'>
+            <Row justify={'space-between'} align={'middle'}>
+              <Col xs={24} md={12} >
+                <img src={firstSlider} width={'100%'} alt=''></img>
+              </Col>
+              <Col xs={24} md={10} className="s4-c-left-section">
+                <div className="s4-c-title">Make a donation</div>
+                <div className="s4-c-des">Before you place your purchase, donate 50% of the product value directly to your chosen organisation.</div>
+                {/* <Row>
+                    <Col xs={18} md={10} lg={15}>
+                      <PrimaryBtn
+                        title={'Learn more'}
+                        color={'white'}
+                        background={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'}
+                        backgroundh={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 35%, rgba(9,9,121,1) 100%)'}
+                        colorh={'white'}
+                        border={'none'}
+                      />
+                    </Col>
+                  </Row> */}
+                <Row className="s4-c-dots" justify={'center'}>
+                  <Col span={6}><img src={Step1Img} alt="" width={'80%'} onClick={() => slider.current.goTo(0)}></img></Col>
+                  <Col span={6}><img src={Step2Img} alt="" width={'80%'} onClick={() => slider.current.goTo(1)}></img></Col>
+                  <Col span={6}><img src={Step3Img} alt="" width={'80%'} onClick={() => slider.current.goTo(2)}></img></Col>
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </div>
+        <div>
+          <div className='contentStyle3'>
+            <Row justify={'space-between'} align={'middle'} >
+              <Col xs={24} md={12} >
+                <img src={firstSlider} width={'100%'} alt=''></img>
+              </Col>
+              <Col xs={24} md={10} className="s4-c-left-section">
+                <div className="s4-c-title">Purchase the product</div>
+                <div className="s4-c-des">Once you've donated, you will be redirected back to the page where you can complete your purchase.</div>
+                {/* <Row>
+                    <Col xs={18} md={10} lg={15}>
+                      <PrimaryBtn
+                        title={'Learn more'}
+                        color={'white'}
+                        background={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'}
+                        backgroundh={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 35%, rgba(9,9,121,1) 100%)'}
+                        colorh={'white'}
+                        border={'none'}
+                      />
+                    </Col>
+                  </Row> */}
+                <Row className="s4-c-dots" justify={'center'}>
+                  <Col span={6}><img src={Step1Img} alt="" width={'80%'} onClick={() => slider.current.goTo(0)}></img></Col>
+                  <Col span={6}><img src={Step2Img} alt="" width={'80%'} onClick={() => slider.current.goTo(1)}></img></Col>
+                  <Col span={6}><img src={Step3Img} alt="" width={'80%'} onClick={() => slider.current.goTo(2)}></img></Col>
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </Carousel>
     </div>
     <div className="s4">
       <div className="s4-des">Why choose GoodStep?</div>
       <div className="s4-title">Reaching most vulnerable communities, first.</div>
-      <div className="s4-c">
-        <Carousel ref={slider} autoplay dots={null} effect={'fade'}>
-          <div >
-            <div className='contentStyle1'>
-              <Row>
-                <Col xs={24} lg={9} className="s4-c-left-section">
-                  <div className="s4-c-title">Impact where its needed.</div>
-                  <div className="s4-c-des">We ensure programs have a strong human angle that responds to india's most climate-vulneravle communities</div>
-                  <Row>
-                    <Col xs={18} md={10} lg={15}>
-                      <PrimaryBtn
-                        title={'Learn more'}
-                        color={'white'}
-                        background={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'}
-                        backgroundh={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 35%, rgba(9,9,121,1) 100%)'}
-                        colorh={'white'}
-                        border={'none'}
-                      />
-                    </Col>
-                  </Row>
-                  <Row className="s4-c-dots">
-                    <Col span={8}><img src={Step1Img} alt="" width={'80%'} onClick={() => slider.current.goTo(0)}></img></Col>
-                    <Col span={8}><img src={Step2Img} alt="" width={'80%'} onClick={() => slider.current.goTo(1)}></img></Col>
-                    <Col span={8}><img src={Step3Img} alt="" width={'80%'} onClick={() => slider.current.goTo(2)}></img></Col>
-                  </Row>
-                </Col>
-              </Row>
-            </div>
-          </div>
-          <div>
-            <div className='contentStyle2'>
-              <Row>
-                <Col xs={24} lg={9} className="s4-c-left-section">
-                  <div className="s4-c-title">Impact you can see.</div>
-                  <div className="s4-c-des">We ensure the organisation has tangible
-                    work on the ground that you can physically see and research.</div>
-                  <Row>
-                    <Col xs={18} md={10} lg={15}>
-                      <PrimaryBtn
-                        title={'Learn more'}
-                        color={'white'}
-                        background={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'}
-                        backgroundh={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 35%, rgba(9,9,121,1) 100%)'}
-                        colorh={'white'}
-                        border={'none'}
-                      />
-                    </Col>
-                  </Row>
-                  <Row className="s4-c-dots">
-                    <Col span={8}><img src={Step1Img} alt="" width={'80%'} onClick={() => slider.current.goTo(0)}></img></Col>
-                    <Col span={8}><img src={Step2Img} alt="" width={'80%'} onClick={() => slider.current.goTo(1)}></img></Col>
-                    <Col span={8}><img src={Step3Img} alt="" width={'80%'} onClick={() => slider.current.goTo(2)}></img></Col>
-                  </Row>
-                </Col>
-              </Row>
-            </div>
-          </div>
-          <div>
-            <div className='contentStyle3'>
-              <Row>
-                <Col xs={24} lg={9} className="s4-c-left-section">
-                  <div className="s4-c-title">Impact where its needed.</div>
-                  <div className="s4-c-des">We ensure programs have a strong human angle that responds to india's most climate-vulneravle communities.</div>
-                  <Row>
-                    <Col xs={18} md={10} lg={15}>
-                      <PrimaryBtn
-                        title={'Learn more'}
-                        color={'white'}
-                        background={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'}
-                        backgroundh={'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 35%, rgba(9,9,121,1) 100%)'}
-                        colorh={'white'}
-                        border={'none'}
-                      />
-                    </Col>
-                  </Row>
-                  <Row className="s4-c-dots">
-                    <Col span={8}><img src={Step1Img} alt="" width={'80%'} onClick={() => slider.current.goTo(0)}></img></Col>
-                    <Col span={8}><img src={Step2Img} alt="" width={'80%'} onClick={() => slider.current.goTo(1)}></img></Col>
-                    <Col span={8}><img src={Step3Img} alt="" width={'80%'} onClick={() => slider.current.goTo(2)}></img></Col>
-                  </Row>
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </Carousel>
-      </div>
     </div>
     <div className='s5'>
 
