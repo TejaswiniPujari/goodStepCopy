@@ -1,3 +1,12 @@
+@font-face {
+    font-family: ABeeZee;
+    src: url(../../font/ABeeZee-Italic.ttf);
+  }
+  @font-face {
+    font-family: Jost;
+    src: url(../../font/Jost-VariableFont_wght.ttf);
+  }
+
 .level-page-content {
     background: #ebeaea;
     padding: 22px 50px;
@@ -34,9 +43,10 @@
 }
 
 .level-page-lno {
+    font-family: Jost;
     font-size: 18px;
-    font-weight: 600;
-    background: #9F46E5;
+    font-weight: 400;
+    background: #386AA3;
     /* width: 100px; */
     border-radius: 20px;
     text-align: center;
@@ -55,41 +65,48 @@
 }
 
 .level-page-title {
+    font-family: Jost;
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 400;
     padding: 20px 0;
 }
 
 .level-page-description-title {
+    font-family: Jost;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 10px;
 }
 
 .level-page-description-content {
+    font-family: Jost;
     font-size: 16px;
     margin-bottom: 20px;
 }
 
 .level-page-action-title {
+    font-family: ABeeZee;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 18px 0;
 }
 
 .level-page-action-option-number {
+    font-family: Jost;
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
 .level-page-action-option-title {
+    font-family: Jost;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 5px;
 }
 
 .level-page-action-option-description {
+    font-family: Jost;
     font-size: 14px;
 }
 

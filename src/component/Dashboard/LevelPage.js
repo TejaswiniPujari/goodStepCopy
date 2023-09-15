@@ -105,10 +105,10 @@ const LevelPage = () => {
                                     <PrimaryBtn
                                         title={'Start Next Level'}
                                         colorh={'white'}
-                                        backgroundh={'rgb(58, 93, 206)'}
-                                        background={'rgb(58, 93, 206)'}
+                                        backgroundh={'#386AA3'}
+                                        background={'#386AA3'}
                                         color={'white'}
-                                        border={'2px solid rgb(58, 93, 206)'}
+                                        border={'2px solid #386AA3'}
                                     />
                                 </NavLink>
                             }

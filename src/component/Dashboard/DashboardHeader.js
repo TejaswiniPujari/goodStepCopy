@@ -42,7 +42,7 @@ const DashboardHeader = () => {
                         <img src={logo} alt='' className='dashboard-header-logo'></img>
                     </NavLink>
                 </Col>
-                <Col xs={4} md={14} lg={13}>
+                <Col xs={4} md={14} lg={10}>
                     <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} align='end' />
                 </Col>
             </Row>

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { LeftCircleFilled, RightCircleFilled } from '@ant-design/icons';
-import { Col, Row, Card, Carousel, Modal, Spin, Tabs, Image } from 'antd';
+import { Col, Row, Card, Carousel, Modal, Spin, Tabs, Image, Tooltip } from 'antd';
 import './dashboard.css';
 import userImg from '../../img/profileImg.jpg';
 import Level1Img from '../../img/level1.jpg';
@@ -17,11 +17,16 @@ import badge8 from '../../img/badge/8.png';
 import badge9 from '../../img/badge/9.png';
 import badge10 from '../../img/badge/10.png';
 import DashboardHeader from './DashboardHeader.js';
-import { NavLink ,useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { baseUrl } from '../../request';
+const cardColorCode = ['#6758F2', '#71A2D9', '#707CD8', '#5F4FA1', '#845ED2', '#A47CF8'];
 
 const Dashboard = () => {
     const slider = useRef(null);
+    const alllevelsCarousel = useRef(null);
+    const completedlevelsCarousel = useRef(null);
+    const activelevelsCarousel = useRef(null);
+    const upcominglevelsCarousel = useRef(null);
     const sliderxs = useRef(null);
     const [loading, setLoading] = useState(false);
     const [userDetails, setUserDetails] = useState(null);
@@ -29,26 +34,48 @@ const Dashboard = () => {
     const [lcount, setLcount] = useState(0);
     const imgCollection = [badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8, badge9, badge10];
     const navigate = useNavigate();
+
+
+
     const LevelCard = ({ imgLink, title, description, number, visibility }) => {
+        console.log(cardColorCode[Math.round((number - 1) % 6)], (number - 1) / 6, number)
         return (
             <>
                 {visibility ?
+                    // <NavLink to={`/dashboard/level/${number}`}>
+                    //     <Card
+                    //         hoverable
+                    //         cover={<img alt="example" src={imgLink} height={'50%'} />}
+                    //         style={{ width: '100%' }}
+
+                    //     >
+                    //         <div className='all-level-list-title'> {title}</div>
+                    //         <div className='all-level-list-des'>{description}</div>
+                    //     </Card>
+                    // </NavLink>
                     <NavLink to={`/dashboard/level/${number}`}>
                         <Card
                             hoverable
-                            cover={<img alt="example" src={imgLink} height={'50%'} />}
-                            style={{ width: '100%' }}
-
+                            style={{ width: '100%', background: cardColorCode[Math.round((number - 1) % 6)] ,color:'white'}}
+                            className='levelCard'
                         >
                             <div className='all-level-list-title'> {title}</div>
                             <div className='all-level-list-des'>{description}</div>
                         </Card>
                     </NavLink>
                     :
+                    // <Card
+                    //     hoverable
+                    //     cover={<img alt="example" src={imgLink} height={'50%'} />}
+                    //     style={{ filter: "grayscale(1)" }}
+                    // >
+                    //     <div className='all-level-list-title'> {title}</div>
+                    //     <div className='all-level-list-des'>{description}</div>
+                    // </Card>
                     <Card
                         hoverable
-                        cover={<img alt="example" src={imgLink} height={'50%'} />}
-                        style={{ filter: "grayscale(1)" }}
+                        style={{ background: cardColorCode[Math.round((number - 1) % 6)],color:'white'}}
+                        className='levelCard'
                     >
                         <div className='all-level-list-title'> {title}</div>
                         <div className='all-level-list-des'>{description}</div>
@@ -176,67 +203,184 @@ const Dashboard = () => {
                                 <div className='all-levels-txt'>All Levels</div>
                                 <Tabs defaultActiveKey={status} items={items} onChange={onChange} />
                                 {status === 'All' &&
-                                    <Row gutter={[32, 32]}>
-                                        {userDetails.levels.length ? userDetails.levels.map((item, key) => {
-                                            return (<Col xs={24} lg={6} className='all-level-list-card'>
-                                                <LevelCard
-                                                    imgLink={Level1Img}
-                                                    title={`Level ${Number(item.levelID)}`}
-                                                    description={item.levelName}
-                                                    number={Number(item.levelID)}
-                                                    visibility={item.levelVisibility}
-                                                />
-                                            </Col>)
-                                        }) : <div className="no-data-found">No Data Found</div>}
+                                    <Row>
+                                        <Col xs={24} md={0}>
+                                            <Row justify={'space-between'} align={'middle'}>
+                                                <Col span={2}>
+                                                    <LeftCircleFilled onClick={() => alllevelsCarousel.current.prev()} className='left-right-arrow' />
+                                                </Col>
+                                                <Col span={19}>
+                                                    <Carousel ref={alllevelsCarousel} dots={null}>
+                                                        {userDetails.levels.length ? userDetails.levels.map((item, key) => {
+                                                            return (<div className='all-level-list-card'>
+                                                                <LevelCard
+                                                                    imgLink={Level1Img}
+                                                                    title={`Level ${Number(item.levelID)}`}
+                                                                    description={item.levelName}
+                                                                    number={Number(item.levelID)}
+                                                                    visibility={item.levelVisibility}
+                                                                />
+
+                                                            </div>)
+                                                        }) : <div className="no-data-found">No Data Found</div>}
+                                                    </Carousel>
+                                                </Col>
+                                                <Col span={2}>
+                                                    <RightCircleFilled onClick={() => alllevelsCarousel.current.next()} className='left-right-arrow' style={{ textAlign: 'end' }} />
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={0} md={24}>
+                                            <Row gutter={[32, 32]}>
+                                                {userDetails.levels.length ? userDetails.levels.map((item, key) => {
+                                                    return (<Col span={6} className='all-level-list-card'>
+                                                        <LevelCard
+                                                            imgLink={Level1Img}
+                                                            title={`Level ${Number(item.levelID)}`}
+                                                            description={item.levelName}
+                                                            number={Number(item.levelID)}
+                                                            visibility={item.levelVisibility}
+                                                        />
+                                                    </Col>)
+                                                }) : <div className="no-data-found">No Data Found</div>}
+                                            </Row>
+                                        </Col>
                                     </Row>
                                 }
                                 {status === 'Completed' &&
-                                    <Row gutter={[32, 32]}>
-                                        {userDetails.levels.filter(item => item.levelStatus === "Completed").length ? userDetails.levels.filter(item => item.levelStatus === "Completed").map((item, key) => {
-                                            return (<Col xs={24} lg={6} className='all-level-list-card'>
-                                                <LevelCard
-                                                    imgLink={Level1Img}
-                                                    title={`Level ${Number(item.levelID)}`}
-                                                    description={item.levelName}
-                                                    number={Number(item.levelID)}
-                                                    visibility={item.levelVisibility}
-                                                />
-                                            </Col>)
-                                        }) : <div className="no-data-found">No Data Found</div>}
+                                    <Row>
+                                        <Col xs={24} md={0}>
+                                            <Row justify={'space-between'} align={'middle'}>
+                                                <Col span={2}>
+                                                    <LeftCircleFilled onClick={() => completedlevelsCarousel.current.prev()} className='left-right-arrow' />
+                                                </Col>
+                                                <Col span={19}>
+                                                    <Carousel ref={completedlevelsCarousel} dots={null}>
+                                                        {userDetails.levels.filter(item => item.levelStatus === "Completed").length ? userDetails.levels.filter(item => item.levelStatus === "Completed").map((item, key) => {
+                                                            return (<div className='all-level-list-card'>
+                                                                <LevelCard
+                                                                    imgLink={Level1Img}
+                                                                    title={`Level ${Number(item.levelID)}`}
+                                                                    description={item.levelName}
+                                                                    number={Number(item.levelID)}
+                                                                    visibility={item.levelVisibility}
+                                                                />
+                                                            </div>)
+                                                        }) : <div className="no-data-found">No Data Found</div>}
+                                                    </Carousel>
+                                                </Col>
+                                                <Col span={2}>
+                                                    <RightCircleFilled onClick={() => completedlevelsCarousel.current.next()} className='left-right-arrow' style={{ textAlign: 'end' }} />
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={0} md={24}>
+                                            <Row gutter={[32, 32]}>
+                                                {userDetails.levels.filter(item => item.levelStatus === "Completed").length ? userDetails.levels.filter(item => item.levelStatus === "Completed").map((item, key) => {
+                                                    return (<Col span={6} className='all-level-list-card'>
+                                                        <LevelCard
+                                                            imgLink={Level1Img}
+                                                            title={`Level ${Number(item.levelID)}`}
+                                                            description={item.levelName}
+                                                            number={Number(item.levelID)}
+                                                            visibility={item.levelVisibility}
+                                                        />
+                                                    </Col>)
+                                                }) : <div className="no-data-found">No Data Found</div>}
+                                            </Row>
+                                        </Col>
                                     </Row>
                                 }
                                 {status === 'Active' &&
-                                    <Row gutter={[32, 32]}>
-                                        {userDetails.levels.filter(item => item.levelStatus === "Active").length ? userDetails.levels.filter(item => item.levelStatus === "Active").map((item, key) => {
-                                            return (<Col xs={24} lg={6} className='all-level-list-card'>
-                                                <LevelCard
-                                                    imgLink={Level1Img}
-                                                    title={`Level ${Number(item.levelID)}`}
-                                                    description={item.levelName}
-                                                    number={Number(item.levelID)}
-                                                    visibility={item.levelVisibility}
-                                                />
-                                            </Col>)
-                                        }) : <div className="no-data-found">No Data Found</div>}
+                                    <Row>
+                                        <Col xs={24} md={0}>
+                                            <Row justify={'space-between'} align={'middle'}>
+                                                <Col span={2}>
+                                                    <LeftCircleFilled onClick={() => activelevelsCarousel.current.prev()} className='left-right-arrow' />
+                                                </Col>
+                                                <Col span={19}>
+                                                    <Carousel ref={activelevelsCarousel} dots={null}>
+                                                        {userDetails.levels.filter(item => item.levelStatus === "Active").length ? userDetails.levels.filter(item => item.levelStatus === "Active").map((item, key) => {
+                                                            return (<div className='all-level-list-card'>
+                                                                <LevelCard
+                                                                    imgLink={Level1Img}
+                                                                    title={`Level ${Number(item.levelID)}`}
+                                                                    description={item.levelName}
+                                                                    number={Number(item.levelID)}
+                                                                    visibility={item.levelVisibility}
+                                                                />
+                                                            </div>)
+                                                        }) : <div className="no-data-found">No Data Found</div>}
+                                                    </Carousel>
+                                                </Col>
+                                                <Col span={2}>
+                                                    <RightCircleFilled onClick={() => activelevelsCarousel.current.next()} className='left-right-arrow' style={{ textAlign: 'end' }} />
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={0} md={24}>
+                                            <Row gutter={[32, 32]}>
+                                                {userDetails.levels.filter(item => item.levelStatus === "Active").length ? userDetails.levels.filter(item => item.levelStatus === "Active").map((item, key) => {
+                                                    return (<Col span={6} className='all-level-list-card'>
+                                                        <LevelCard
+                                                            imgLink={Level1Img}
+                                                            title={`Level ${Number(item.levelID)}`}
+                                                            description={item.levelName}
+                                                            number={Number(item.levelID)}
+                                                            visibility={item.levelVisibility}
+                                                        />
+                                                    </Col>)
+                                                }) : <div className="no-data-found">No Data Found</div>}
+                                            </Row>
+                                        </Col>
                                     </Row>
                                 }
                                 {status === 'inactive' &&
-                                    <Row gutter={[32, 32]}>
-                                        {userDetails.levels.filter(item => item.levelStatus === "inactive").length ? userDetails.levels.filter(item => item.levelStatus === "inactive").map((item, key) => {
-                                            return (<Col xs={24} lg={6} className='all-level-list-card'>
-                                                <LevelCard
-                                                    imgLink={Level1Img}
-                                                    title={`Level ${Number(item.levelID)}`}
-                                                    description={item.levelName}
-                                                    number={Number(item.levelID)}
-                                                    visibility={item.levelVisibility}
-                                                />
-                                            </Col>)
-                                        }) : <div className="no-data-found">No Data Found</div>}
+                                    <Row>
+                                        <Col xs={24} md={0}>
+                                            <Row justify={'space-between'} align={'middle'}>
+                                                <Col span={2}>
+                                                    <LeftCircleFilled onClick={() => upcominglevelsCarousel.current.prev()} className='left-right-arrow' />
+                                                </Col>
+                                                <Col span={19}>
+                                                    <Carousel ref={upcominglevelsCarousel} dots={null}>
+                                                        {userDetails.levels.filter(item => item.levelStatus === "inactive").length ? userDetails.levels.filter(item => item.levelStatus === "inactive").map((item, key) => {
+                                                            return (<div className='all-level-list-card'>
+                                                                <LevelCard
+                                                                    imgLink={Level1Img}
+                                                                    title={`Level ${Number(item.levelID)}`}
+                                                                    description={item.levelName}
+                                                                    number={Number(item.levelID)}
+                                                                    visibility={item.levelVisibility}
+                                                                />
+                                                            </div>)
+                                                        }) : <div className="no-data-found">No Data Found</div>}
+                                                    </Carousel>
+                                                </Col>
+                                                <Col span={2}>
+                                                    <RightCircleFilled onClick={() => upcominglevelsCarousel.current.next()} className='left-right-arrow' style={{ textAlign: 'end' }} />
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={0} md={24}>
+                                            <Row gutter={[32, 32]}>
+                                                {userDetails.levels.filter(item => item.levelStatus === "inactive").length ? userDetails.levels.filter(item => item.levelStatus === "inactive").map((item, key) => {
+                                                    return (<Col span={6} className='all-level-list-card'>
+                                                        <LevelCard
+                                                            imgLink={Level1Img}
+                                                            title={`Level ${Number(item.levelID)}`}
+                                                            description={item.levelName}
+                                                            number={Number(item.levelID)}
+                                                            visibility={item.levelVisibility}
+                                                        />
+                                                    </Col>)
+                                                }) : <div className="no-data-found">No Data Found</div>}
+                                            </Row>
+                                        </Col>
                                     </Row>
                                 }
                             </div>
-                            <div>
+                            {/* <div>
                                 <div className='all-levels-txt'>What’s new on Goodstep</div>
                                 <Row>
                                     <Col xs={24} md={0}>
@@ -303,7 +447,7 @@ const Dashboard = () => {
                                         </Row>
                                     </Col>
                                 </Row>
-                            </div>
+                            </div> */}
                         </div>
                     </>
                 }

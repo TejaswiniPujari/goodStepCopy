@@ -19,13 +19,13 @@
 .step1-page {
     height: 100vh;
     width: 100vw;
-    background: #9F46E5;
+    background: #386AA3;
 }
 
 .step1-title {
     color: white;
     font-size: 44px;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
@@ -40,7 +40,7 @@
     font-size: 22px;
     margin: 30px 0 0;
     padding: 10px 0;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .step1-des {
@@ -59,9 +59,9 @@
 }
 
 .step2-title {
-    color: #9F46E5;
+    color: #386AA3;
     font-size: 44px;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 5px;
 }
 
@@ -88,7 +88,7 @@
 .step2-inputBox:hover,
 .step2-inputBox:focus {
     outline: none;
-    border: 1px solid #9F46E5;
+    border: 1px solid #386AA3;
 }
 
 .step2-primary-button {
@@ -102,7 +102,7 @@
     font-size: 22px;
     margin: 15px 0 0;
     padding: 10px 0;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 /* ---------- */
@@ -122,7 +122,7 @@
 .login-title {
     color: #282828f2;
     font-size: 44px;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 40px;
 }
 
@@ -147,7 +147,7 @@
 
 .step3-primary-button {
     color: white;
-    background: #9f46e5;
+    background: #386AA3;
     width: 100px;
     border-radius: 100px;
     gap: 20px;
@@ -156,16 +156,15 @@
     font-size: 22px;
     margin: 10px 0 0;
     padding: 10px 0;
-    /* font-weight: 600; */
 }
 
 /* ---------- */
 
 /* step4 */
 .step4-title {
-    color: #9F46E5;
+    color: #386AA3;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 30px;
 }
 
@@ -178,8 +177,8 @@
 }
 
 :where(.css-dev-only-do-not-override-nnuwmp).ant-checkbox-checked .ant-checkbox-inner {
-    background-color: #9f46e5;
-    border-color: #9f46e5;
+    background-color: #386AA3;
+    border-color: #386AA3;
 }
 
 
@@ -196,7 +195,7 @@
     }
 
     .login-title {
-        font-weight: bold;
+        font-weight: 400;
         margin-bottom: 25px;
     }
 

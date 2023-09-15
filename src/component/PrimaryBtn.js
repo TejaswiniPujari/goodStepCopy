@@ -11,7 +11,8 @@ const PrimaryBtn = ({ title, color, background, colorh, backgroundh, border ,onC
         color: color,
         padding: '11px',
         width: '100%',
-        fontWeight: '600'
+        fontWeight: '600',
+        fontFamily:'Jost'
     }
     const changeBackground = (e) => {
         e.target.style.backgroundColor = backgroundh;

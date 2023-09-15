@@ -1,5 +1,5 @@
 .dashboard-header {
-    background: #9F46E5;
+    background: #386AA3;  
     padding: 8px 20px;
 }
 
@@ -7,8 +7,8 @@
 :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light>.ant-menu,
 :where(.css-nnuwmp).ant-menu-light {
     color: white;
-    font-weight: bold;
-    background: #9F46E5;
+    font-weight: 400;
+    background: #386AA3;  
     font-size: 15px;
 }
 
@@ -30,7 +30,7 @@
 }
 
 :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light.ant-menu-submenu>.ant-menu {
-    background: #9F46E5;
+    background: #386AA3;
 }
 
 .dashboard-header :where(.css-dev-only-do-not-override-nnuwmp).ant-menu-light.ant-menu-horizontal>.ant-menu-submenu-active::after,
@@ -60,12 +60,12 @@
 .dashboard-welcome-txt {
     font-size: 28px;
     color: #373F41;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .current-level-number {
     padding: 10px 18px;
-    background: #9F46E5;
+    background: #386AA3;
     border-radius: 10px;
     color: white;
     text-align: center;
@@ -74,12 +74,12 @@
 
 .cln {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .all-level-list-title {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
     text-decoration: underline;
     text-underline-offset: 6px;
@@ -87,7 +87,7 @@
 
 .all-level-list-des {
     text-align: center;
-    font-size: 14px;
+    font-size: 22px;
     margin-top: 4px;
 }
 
@@ -97,7 +97,7 @@
 
 .all-levels-txt {
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 400;
     color: black;
     margin: 50px 0px 10px;
 }
@@ -111,11 +111,16 @@
 }
 
 .left-right-arrow {
-    font-size: 40px;
+    font-size: 30px;
     color: #cbc7ce;
 }
-
+.levelCard{
+    padding: 50px 0;
+}
 @media (max-width: 600px) {
+    .all-level-list-card {
+        padding: 0;
+    }
     .dashboard-content {
         padding: 20px 30px;
     }
@@ -139,6 +144,12 @@
 }
 
 @media (min-width: 600px) and (max-width: 800px) {
+    .levelCard{
+        padding: 20px 0;
+    }
+    .all-level-list-des{
+        font-size: 16px;
+    }
     .current-level-number {
         padding: 7px 18px;
     }
@@ -164,7 +175,7 @@
     filter: grayscale(1);
 }
 .profileName{
-    background: #9f46e5;
+    background: #386AA3;
     border-radius: 50%;
     width: 41px;
     height: 40px;
@@ -172,5 +183,5 @@
     font-size: 27px;
     padding: 10px;
     color: white;
-    font-weight: bold;
+    font-weight: 400;
 }

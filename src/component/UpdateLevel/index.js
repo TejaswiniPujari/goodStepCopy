@@ -85,7 +85,7 @@ const UpdateNewLevel = () => {
             body: JSON.stringify(payload),
         }).then(res => res.json());
 
-        if (response) {
+        if (response.meassage === "Level Updated") {
             Modal.success({
                 title: 'You successfully added level',
             });
@@ -103,70 +103,6 @@ const UpdateNewLevel = () => {
     const onReset = () => {
         form.resetFields();
     };
-    const data = {
-        "levelID": 1,
-        "levelName": "my first level",
-        "levelEstimateTime": 10,
-        "levelBadge": 1,
-        "levelRewards": "A 15 min calendly call to get your Qs answered by experts",
-        "levelStatus": "Completed",
-        "levelVisibility": true,
-        "levelDesc": [
-            {
-                "title": "Your Real Role: Consumer vs Citizen",
-                "note": "Level design has evolved a great deal over the past few decades. Today, it is an exercise in teamwork requiring the input from multiple designers, artists, programmers and engineers, who have to work together to create a consistent and immersive experience."
-            }
-        ],
-        "levelSteps": [
-            {
-                "title": "onewgdsgdh",
-                "description": "dhsbjhjdkjkj ghdsdjakjs dgshdajshad bdjhdajkjkas  dgdhajsjnad xashadjajjadhsbjhjdkjkj ghdsdjakjs dgshdajshad bdjhdajkjkas  dgdhajsjnad xashadjajjadhsbjhjdkjkj ghdsdjakjs dgshdajshad bdjhdajkjkas  dgdhajsjnad xashadjajja",
-                "imgUrl": "https://www.nuclino.com/img/articles/level-design-dragon-age.jpg",
-                "videoUrl": "https://www.youtube.com/watch?v=09gj5gM4V98"
-            }
-        ],
-        "klevelQuiz": [
-            {
-                "question": "name?",
-                "answer": "tejaswini,teju"
-            }
-        ],
-        "olevelQuiz": [
-            {
-                "question": "song?",
-                "options": "a,b,c",
-                "answer": "a"
-            }
-        ],
-        "clevelQuiz": [
-            {
-                "question": "write a story?",
-                "answer": 12
-            }
-        ],
-        "levelQuiz": [
-            {
-                "answer": 12,
-                "question": "write a story?",
-                "type": "charlength"
-            },
-            {
-                "answer": "tejaswini,teju",
-                "question": "name?",
-                "type": "keyword check"
-            },
-            {
-                "answer": "a",
-                "question": "song?",
-                "type": "option",
-                "options": [
-                    "a",
-                    "b",
-                    "c"
-                ]
-            }
-        ]
-    }
     const getLevlDetails = async () => {
         setLoading(true);
         const response = await fetch(`${baseUrl}/getLevelDetails`, {
@@ -188,7 +124,6 @@ const UpdateNewLevel = () => {
                 content: 'please try again...(refersh page)',
             });
         }
-        setInitialValues(data)
         setLoading(false);
     }
 

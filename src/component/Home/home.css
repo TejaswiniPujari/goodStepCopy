@@ -1,5 +1,13 @@
+@font-face {
+    font-family: ABeeZee;
+    src: url(../../font/ABeeZee-Italic.ttf);
+  }
+  @font-face {
+    font-family: Jost;
+    src: url(../../font/Jost-VariableFont_wght.ttf);
+  }
 .header-bar {
-    background: #6758F2;
+     background: #386AA3;  
     padding: 10px;
     text-align: center;
 }
@@ -13,9 +21,10 @@
 .homePage-title {
     font-size: 46px;
     color: #6758F2;
-    font-weight: bold;
+    font-weight: 400;
     position: relative;
     top: -10px;
+    font-family: ABeeZee;
 }
 
 .homePage-des {
@@ -23,7 +32,8 @@
     color: #5F4FA1;
     line-height: 29px;
     margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: 400;
+    font-family: Jost;
 }
 
 .s1 {
@@ -39,9 +49,10 @@
 .homePage-title-s2 {
     font-size: 150px;
     color: #6758F2;
-    font-weight: bold;
+    font-weight: 400;
     position: relative;
     top: -50px;
+    font-family: ABeeZee;
 }
 
 .s3 {
@@ -58,7 +69,7 @@
     border-radius: 50%;
     text-align: center;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 400;
     color: #6758f2;
     height: 31px;
     width: 31px;
@@ -73,8 +84,9 @@
 .s3-step-title {
     color: white;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 30px;
+    font-family: ABeeZee;
 }
 
 .s3-steps-info {
@@ -91,12 +103,14 @@
     font-size: 18px;
     color: white;
     margin-bottom: 12px;
+    font-family: Jost;
 }
 
 .s3-step-link {
     color: white;
     font-size: 18px;
     text-decoration: underline;
+    font-family: Jost;
 }
 
 .s3-step-link:hover {
@@ -111,15 +125,16 @@
     font-size: 23px;
     text-align: center;
     color: #5F4FA1;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .s4-title {
     font-size: 46px;
     text-align: center;
     color: #6758f2;
-    font-weight: 800;
+    font-weight: 400;
     margin: 20px 0;
+    font-family: ABeeZee;
 }
 
 .contentStyle1 {
@@ -156,7 +171,7 @@
 .s4-c-title {
     font-size: 30px;
     color: white;
-    font-weight: 800;
+    font-weight: 400;
     margin-bottom: 10px;
 }
 
@@ -183,14 +198,14 @@
 .card-title {
     font-size: 20px;
     color: #6758f2;
-    font-weight: 500;
+    font-weight: 400;
     margin: 10px 0;
 }
 
 .card-des {
     font-size: 14px;
     color: #1a2873;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .center {
@@ -232,7 +247,7 @@
 .s6-title {
     font-size: 44px;
     color: #6758f2;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
@@ -250,7 +265,7 @@
 }
 
 .footer {
-    background: #6758F2;
+    background: #386AA3;  
 }
 
 .footer-s1 {
@@ -260,7 +275,7 @@
 .footer-title {
     font-size: 44px;
     color: white;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
@@ -276,14 +291,14 @@
 .footer-title2 {
     color: white;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 30px;
 }
 
 .footer-title3 {
     color: white;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 30px;
 }
 
@@ -309,7 +324,7 @@
 .l-r {
     color: white;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
     border: none;
     background: transparent;
 }
@@ -557,4 +572,8 @@
     .footer-bottom {
         padding: 0 26px 20px;
     }
+}
+.change-link-style{
+    color: white;
+    text-decoration: none;
 }

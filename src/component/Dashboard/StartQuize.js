@@ -62,10 +62,10 @@ const StartQuize = ({ questions, levelID, userId }) => {
             <PrimaryBtn
                 title={'Start Quiz'}
                 colorh={'white'}
-                backgroundh={'rgb(58, 93, 206)'}
-                background={'rgb(58, 93, 206)'}
+                backgroundh={'#386AA3'}
+                background={'#386AA3'}
                 color={'white'}
-                border={'2px solid rgb(58, 93, 206)'}
+                border={'2px solid #386AA3'}
                 onClick={showModal}
             />
             <Modal
@@ -126,10 +126,10 @@ const StartQuize = ({ questions, levelID, userId }) => {
                                     <PrimaryBtn
                                         title={'Submit'}
                                         colorh={'white'}
-                                        backgroundh={'rgb(58, 93, 206)'}
-                                        background={'rgb(58, 93, 206)'}
+                                        backgroundh={'#386AA3'}
+                                        background={'#386AA3'}
                                         color={'white'}
-                                        border={'2px solid rgb(58, 93, 206)'}
+                                        border={'2px solid #386AA3'}
                                     />
                                 </Col>
                             </Row>

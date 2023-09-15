@@ -3,7 +3,7 @@ import HeaderImg from "./img/footer-logo1.png";
 import './component/Home/home.css';
 import Marquee from "react-fast-marquee";
 import SliderImg from './img/home-slides-banner2.png'
-import { Row, Col, Carousel,Space,Input,Button } from "antd";
+import { Row, Col, Carousel, Space, Input, Button } from "antd";
 import PrimaryBtn from './component/PrimaryBtn';
 import Step1Img from './img/step-1.png';
 import Step2Img from './img/step-2.png';
@@ -16,7 +16,7 @@ import star3 from './img/review-star3.png';
 import CardBox from './component/Home/CardBox';
 import arrow from './img/about-arrow.png';
 import PaymentImg from './img/payments.png';
-import { CopyrightOutlined, UserOutlined,AudioOutlined } from '@ant-design/icons';
+import { CopyrightOutlined, UserOutlined, AudioOutlined } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './component/Login/login.css';
 import { baseUrl } from './request';
@@ -39,17 +39,17 @@ const App = () => {
     navigate('/login-register');
   }
 
-  const onSearch = async(e) => {
-    
+  const onSearch = async (e) => {
+
     const response = await fetch(`${baseUrl}/subscribe`, {
       method: "POST",
       headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
-      body: JSON.stringify({ email:e }),
-  }).then(res => res.json());
+      body: JSON.stringify({ email: e }),
+    }).then(res => res.json());
 
     console.log(e)
   };
@@ -57,12 +57,12 @@ const App = () => {
   return (<>
     <div className="header-bar">
       <Row align={'middle'} justify={'space-between'}>
-        <Col xs={12} md={20}>
+        <Col xs={12} md={18} lg={20}>
           <NavLink to={localStorage.getItem("logged") === 'true' ? '/dashboard' : '/'}>
             <img src={HeaderImg} alt="" className="Headerlogo"></img>
           </NavLink>
         </Col>
-        <Col xs={8} md={4}>
+        <Col xs={8} md={6} lg={4}>
           <Row>
             {localStorage.getItem("logged") === 'true' ?
               <Col span={24}>
@@ -98,11 +98,11 @@ const App = () => {
             <Col xs={22} md={22} lg={15}>
               <PrimaryBtn
                 title={'Explore our products'}
-                color={'rgb(58, 93, 206)'}
+                color={'#386AA3'}
                 background={'white'}
-                backgroundh={'rgb(58, 93, 206)'}
+                backgroundh={'#386AA3'}
                 colorh={'white'}
-                border={'2px solid rgb(58, 93, 206)'}
+                border={'2px solid #386AA3'}
               />
             </Col>
           </Row>
@@ -120,11 +120,11 @@ const App = () => {
             <Col xs={20} md={18}>
               <PrimaryBtn
                 title={'Learn more'}
-                color={'rgb(58, 93, 206)'}
+                color={'#386AA3'}
                 background={'white'}
-                backgroundh={'rgb(58, 93, 206)'}
+                backgroundh={'#386AA3'}
                 colorh={'white'}
-                border={'2px solid rgb(58, 93, 206)'}
+                border={'2px solid #386AA3'}
               />
             </Col>
           </Row>
@@ -281,117 +281,170 @@ const App = () => {
           <Carousel>
             <div><CardBox
               starImg={star1}
-              title='Floyd Miles'
-              description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+              title='Manish Patel'
+              description={[`GoodStep has become my go-to for understanding what's up with India's climate scene. It's not all bad news – they're showing me the real deal about India's climate scene. Their style is super refreshing, and the whole gamified thing makes it way less intimidating. It's like an adventure!" Kudos!`]}
             /></div>
             <div>
               <CardBox
                 starImg={star2}
-                title='Floyd Miles'
-                description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                title='Jyoti Shetty'
+                description={[`GoodStep's videos are a game-changer! They've made climate information so much more consumable and engaging. I used to think climate change was a distant issue, but GoodStep made it personal. Their content on finding your climate role showed me that I have the power to make a difference right where I am. It's not just about big goals; it's about the small actions we take every day.`]}
               />
             </div>
             <div>
               <CardBox
                 starImg={star3}
-                title='Savannah Nguyen'
-                description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
+                title='Karthik Shah'
+                description={[`GoodStep's approach to climate roles in different industries is spot on. They've shown me that every job can be a climate job. Now, I feel empowered to make a change within my workplace, no matter what industry I'm in.`]}
+              />
+            </div>
+            <div><CardBox
+              starImg={star1}
+              title={`Joshua D'souza`}
+              description={[`Talking about climate change used to be daunting, but GoodStep's guidance made it easier. Their tips on getting people to care are invaluable. I've learned that every conversation matters, no matter how small.`]}
+            /></div>
+            <div>
+              <CardBox
+                starImg={star2}
+                title='Aanchal Punjabi'
+                description={[`Real India's Real Climate Stories by GoodStep gave me a fresh perspective. It's not just about EVs and carbon goals; it's about climate justice. I've learned about the missing piece of the puzzle that's often overlooked.`]}
+              />
+            </div>
+            <div>
+              <CardBox
+                starImg={star3}
+                title='Hitesh mehta'
+                description={[`GoodStep's breakdown of the 1.5-degree Celsius goal was eye-opening. I now understand why every tenth of a degree matters. It's visionary content for anyone who wants to be a part of the solution, not just a bystander.`]}
               />
             </div>
           </Carousel>
         </Col>
         <Col xs={0} md={24} lg={0} xl={0} xxl={0}>
           <Carousel>
-          <div>
-            <Row gutter={[32,32]}>
-              <Col span={12}>
-                <CardBox
-                  starImg={star1}
-                  title='Floyd Miles'
-                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-              <Col span={12}>
-                <CardBox
-                  starImg={star2}
-                  title='Ronald Richards'
-                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-            </Row>
-          </div>
-          <div>
-            <Row gutter={[32,32]}>
-              <Col span={12}>
-                <CardBox
-                  starImg={star2}
-                  title='Ronald Richards'
-                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-              <Col span={12}>
-                <CardBox
-                  starImg={star3}
-                  title='Savannah Nguyen'
-                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-            </Row>
-          </div>
+            <div>
+              <Row gutter={[32, 32]}>
+                <Col span={12}>
+                  <div><CardBox
+                    starImg={star1}
+                    title='Manish Patel'
+                    description={[`GoodStep has become my go-to for understanding what's up with India's climate scene. It's not all bad news – they're showing me the real deal about India's climate scene. Their style is super refreshing, and the whole gamified thing makes it way less intimidating. It's like an adventure!" Kudos!`]}
+                  /></div>
+                </Col>
+                <Col span={12}>
+                  <div>
+                    <CardBox
+                      starImg={star2}
+                      title='Jyoti Shetty'
+                      description={[`GoodStep's videos are a game-changer! They've made climate information so much more consumable and engaging. I used to think climate change was a distant issue, but GoodStep made it personal. Their content on finding your climate role showed me that I have the power to make a difference right where I am. It's not just about big goals; it's about the small actions we take every day.`]}
+                    />
+                  </div>
+                </Col>
+              </Row>
+            </div>
+            <div>
+              <Row gutter={[32, 32]}>
+                <Col span={12}>
+                  <div>
+                    <CardBox
+                      starImg={star3}
+                      title='Karthik Shah'
+                      description={[`GoodStep's approach to climate roles in different industries is spot on. They've shown me that every job can be a climate job. Now, I feel empowered to make a change within my workplace, no matter what industry I'm in.`]}
+                    />
+                  </div>
+                </Col>
+                <Col span={12}>
+                  <div><CardBox
+                    starImg={star1}
+                    title={`Joshua D'souza`}
+                    description={[`Talking about climate change used to be daunting, but GoodStep's guidance made it easier. Their tips on getting people to care are invaluable. I've learned that every conversation matters, no matter how small.`]}
+                  /></div>
+                </Col>
+              </Row>
+            </div>
+            <div>
+              <Row gutter={[32, 32]}>
+                <Col span={12}>
+                  <div>
+                    <CardBox
+                      starImg={star2}
+                      title='Aanchal Punjabi'
+                      description={[`Real India's Real Climate Stories by GoodStep gave me a fresh perspective. It's not just about EVs and carbon goals; it's about climate justice. I've learned about the missing piece of the puzzle that's often overlooked.`]}
+                    />
+                  </div>
+                </Col>
+                <Col span={12}>
+                  <div>
+                    <CardBox
+                      starImg={star3}
+                      title='Hitesh mehta'
+                      description={[`GoodStep's breakdown of the 1.5-degree Celsius goal was eye-opening. I now understand why every tenth of a degree matters. It's visionary content for anyone who wants to be a part of the solution, not just a bystander.`]}
+                    />
+                  </div>
+                </Col>
+              </Row>
+            </div>
           </Carousel>
         </Col>
         <Col xs={0} md={0} lg={24} xl={24} xxl={24}>
           <Carousel>
-          <div>
-            <Row gutter={[32,32]}>
-              <Col span={8}>
-                <CardBox
-                  starImg={star1}
-                  title='Floyd Miles'
-                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-              <Col span={8}>
-                <CardBox
-                  starImg={star2}
-                  title='Ronald Richards'
-                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-              <Col span={8}>
-                <CardBox
-                  starImg={star3}
-                  title='Savannah Nguyen'
-                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-            </Row>
-          </div>
-          <div>
-            <Row gutter={[32,32]}>
-              <Col span={8}>
-                <CardBox
-                  starImg={star2}
-                  title='Ronald Richards'
-                  description={['ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-              <Col span={8}>
-                <CardBox
-                  starImg={star3}
-                  title='Savannah Nguyen'
-                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ', 'Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-              <Col span={8}>
-                <CardBox
-                  starImg={star1}
-                  title='Floyd Miles'
-                  description={['Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.']}
-                />
-              </Col>
-            </Row>
-          </div>
+            <div>
+              <Row gutter={[32, 32]}>
+                <Col span={8}>
+                  <div><CardBox
+                    starImg={star1}
+                    title='Manish Patel'
+                    description={[`GoodStep has become my go-to for understanding what's up with India's climate scene. It's not all bad news – they're showing me the real deal about India's climate scene. Their style is super refreshing, and the whole gamified thing makes it way less intimidating. It's like an adventure!" Kudos!`]}
+                  /></div>
+                </Col>
+                <Col span={8}>
+                  <div>
+                    <CardBox
+                      starImg={star2}
+                      title='Jyoti Shetty'
+                      description={[`GoodStep's videos are a game-changer! They've made climate information so much more consumable and engaging. I used to think climate change was a distant issue, but GoodStep made it personal. Their content on finding your climate role showed me that I have the power to make a difference right where I am. It's not just about big goals; it's about the small actions we take every day.`]}
+                    />
+                  </div>
+                </Col>
+                <Col span={8}>
+                  <div>
+                    <CardBox
+                      starImg={star3}
+                      title='Karthik Shah'
+                      description={[`GoodStep's approach to climate roles in different industries is spot on. They've shown me that every job can be a climate job. Now, I feel empowered to make a change within my workplace, no matter what industry I'm in.`]}
+                    />
+                  </div>
+                </Col>
+              </Row>
+            </div>
+            <div>
+              <Row gutter={[32, 32]}>
+                <Col span={8}>
+                  <div><CardBox
+                    starImg={star1}
+                    title={`Joshua D'souza`}
+                    description={[`Talking about climate change used to be daunting, but GoodStep's guidance made it easier. Their tips on getting people to care are invaluable. I've learned that every conversation matters, no matter how small.`]}
+                  /></div>
+                </Col>
+                <Col span={8}>
+                  <div>
+                    <CardBox
+                      starImg={star2}
+                      title='Aanchal Punjabi'
+                      description={[`Real India's Real Climate Stories by GoodStep gave me a fresh perspective. It's not just about EVs and carbon goals; it's about climate justice. I've learned about the missing piece of the puzzle that's often overlooked.`]}
+                    />
+                  </div>
+                </Col>
+                <Col span={8}>
+                  <div>
+                    <CardBox
+                      starImg={star3}
+                      title='Hitesh mehta'
+                      description={[`GoodStep's breakdown of the 1.5-degree Celsius goal was eye-opening. I now understand why every tenth of a degree matters. It's visionary content for anyone who wants to be a part of the solution, not just a bystander.`]}
+                    />
+                  </div>
+                </Col>
+              </Row>
+            </div>
           </Carousel>
         </Col>
       </Row>
@@ -407,42 +460,42 @@ const App = () => {
       <div className='footer-s1'>
         <div className='footer-title center'>Enter email to subscribe</div>
         <Row justify={'center'}>
-          <Col md={8}lg={7}>
-          <Input.Search
-      placeholder="Enter mail id"
-      enterButton="Subscribe"
-      size="large"
-      onSearch={onSearch}
-    />
+          <Col md={8} lg={7}>
+            <Input.Search
+              placeholder="Enter mail id"
+              enterButton="Subscribe"
+              size="large"
+              onSearch={onSearch}
+            />
           </Col>
         </Row>
-        <br/>
+        <br />
         <div className='footer-logo center'><img src={HeaderImg} alt='' width={'30%'}></img></div>
         <div className='footer-des center'> GoodStep is a game, where everyone wins - planet, people and you! The platform helps you make a gradual transition to a more sustainable and socially responsible lifestyle - and the best part? We make it easy, non-disruptive, and a fun game you can play with friends!</div>
         <Row justify={'center'}>
           <Col xs={0} md={2}></Col>
           <Col xs={24} md={5}>
             <div className='footer-title2'>Legal</div>
-            <div className='footer-a'><a href='#' className='footer-link'>Terms of Service</a></div>
-            <div className='footer-a' ><a href='#' className='footer-link'>Privacy Policy</a></div>
+            <div className='footer-a'><a className="change-link-style" href='#' className='footer-link'>Terms of Service</a></div>
+            <div className='footer-a' ><a className="change-link-style" href='#' className='footer-link'>Privacy Policy</a></div>
           </Col>
           <Col xs={24} md={8} className='footer-m'>
             <div className='footer-title2'>Contact Us</div>
-            <div className='footer-a'><a href="mailto:hello@thegoodstep.com" className='footer-link'>hello@thegoodstep.com</a></div>
+            <div className='footer-a'><a className="change-link-style" href="mailto:hello@thegoodstep.com" className='footer-link'>hello@thegoodstep.com</a></div>
           </Col>
           <Col xs={0} md={2}></Col>
           <Col xs={24} md={6}>
             <div className='footer-title2'>Know More</div>
-            <div className='footer-a'><a href='#' className='footer-link'>About Us</a></div>
-            <div className='footer-a' ><a href='#' className='footer-link'>Partner with Us</a></div>
-            <div className='footer-a'><a href='#' className='footer-link'>Blogs</a></div>
-            <div className='footer-a' ><a href='#' className='footer-link'>FAQs</a></div>
+            <div className='footer-a'><a className="change-link-style" href='#' className='footer-link'>About Us</a></div>
+            <div className='footer-a' ><a className="change-link-style" href='#' className='footer-link'>Partner with Us</a></div>
+            <div className='footer-a'><a className="change-link-style" href='#' className='footer-link'>Blogs</a></div>
+            <div className='footer-a' ><a className="change-link-style" href='#' className='footer-link'>FAQs</a></div>
           </Col>
         </Row>
       </div>
       <hr />
       <Row justify={'space-between'} className='footer-bottom'>
-        <Col xs={24} md={12} lg={6} className='footer-title3'><a href='https://www.digitalbuzzers.com/'>GoodStep <span style={{ color: '#e1dbe8' }}><CopyrightOutlined /> 2023 DEVELOPED </span> BY Digital Buzzers</a></Col>
+        <Col xs={24} md={12} lg={6} className='footer-title3'><a className="change-link-style" href='https://www.digitalbuzzers.com/'>GoodStep <span style={{ color: '#e1dbe8' }}><CopyrightOutlined /> 2023 DEVELOPED </span> BY Digital Buzzers</a></Col>
         <Col xs={24} md={8} lg={5} className='center'><img src={PaymentImg} width={'100%'} alt=''></img></Col>
       </Row>
     </div>
