@@ -116,8 +116,12 @@
 }
 .levelCard{
     padding: 50px 0;
+    height: 280px;
 }
 @media (max-width: 600px) {
+    .levelCard{
+        height: 250px;
+    }
     .all-level-list-card {
         padding: 0;
     }
@@ -145,6 +149,7 @@
 
 @media (min-width: 600px) and (max-width: 800px) {
     .levelCard{
+        height: 200px;
         padding: 20px 0;
     }
     .all-level-list-des{

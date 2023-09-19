@@ -56,7 +56,7 @@ const Dashboard = () => {
                     <NavLink to={`/dashboard/level/${number}`}>
                         <Card
                             hoverable
-                            style={{ width: '100%', background: cardColorCode[Math.round((number - 1) % 6)] ,color:'white'}}
+                            style={{ width: '100%', background: cardColorCode[Math.round((number - 1) % 6)], color: 'white' }}
                             className='levelCard'
                         >
                             <div className='all-level-list-title'> {title}</div>
@@ -74,7 +74,7 @@ const Dashboard = () => {
                     // </Card>
                     <Card
                         hoverable
-                        style={{ background: cardColorCode[Math.round((number - 1) % 6)],color:'white'}}
+                        style={{ background: cardColorCode[Math.round((number - 1) % 6)], color: 'white' }}
                         className='levelCard'
                     >
                         <div className='all-level-list-title'> {title}</div>

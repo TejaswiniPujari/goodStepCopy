@@ -147,7 +147,7 @@
     rgba(126, 183, 247, 0.4984) 56.22%,
     rgba(243, 60, 196, 0.5785) 87.43%);
     height: 320px;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     padding: 40px;
 }
 
