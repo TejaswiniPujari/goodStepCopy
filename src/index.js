@@ -8,6 +8,7 @@ import Dashboard from './component/Dashboard';
 import{ Login} from './component/Login';
 import AddNewLevel from './component/AddNewLevel';
 import UpdateNewLevel from './component/UpdateLevel';
+import MyProfile from './component/MyProfile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
         <Route path='/dashboard/level/:levelNumber' element={<LevelPage />} />
         <Route path='/updateLevelDetails/:levelNumber' element={<UpdateNewLevel />} />
         <Route path='/addnewlevel' element={<AddNewLevel/>} />
+        <Route path='/myprofile' element={<MyProfile/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

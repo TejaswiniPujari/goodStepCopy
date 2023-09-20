@@ -91,26 +91,31 @@ const App = () => {
     <div className="s1">
       <Row justify={'space-between'}>
         <Col xs={24} md={15}>
-          <div className='homePage-title'>Climate impact just got easier</div>
+          <div className='homePage-title'>All your climate questions answered </div>
         </Col>
         <Col xs={24} md={9}>
-          <div className='homePage-des'>GoodStep helps you choose a verified impact, make a donation and purchase sustainable products, all in one go.</div>
+          <div className='homePage-des'>Ace your climate basics, access a curated ecosystem of resources, and find your climate community. 
+</div>
           <Row>
             <Col xs={22} md={22} lg={15}>
               <PrimaryBtn
-                title={'Explore our products'}
+                title={'Get started'}
                 color={'#386AA3'}
                 background={'white'}
                 backgroundh={'#386AA3'}
                 colorh={'white'}
                 border={'2px solid #386AA3'}
+                onClick={()=>{
+                  navigate('/login-register')
+                }}
               />
             </Col>
           </Row>
         </Col>
       </Row>
     </div>
-    <div className="s2">
+    <br/>
+    {/* <div className="s2">
       <Row justify={'space-between'}>
         <Col xs={24} md={12}>
           <div className='homePage-title-s2'>50%</div>
@@ -131,7 +136,7 @@ const App = () => {
           </Row>
         </Col>
       </Row>
-    </div>
+    </div> */}
     {/* <div className="half-circle" id="zoom">
       <img src={HalfCircleImg} alt="" width={'100%'}></img>
     </div> */}
@@ -185,6 +190,10 @@ const App = () => {
         </Col>
       </Row>
     </div> */}
+     <div className="s4">
+      <div className="s4-des">How does it work?</div>
+      <div className="s4-title">3 Steps on GoodStep </div>
+    </div>
     <div className="s4-c">
       <Carousel ref={slider} autoplay dots={null} effect={'fade'}>
         <div >
@@ -194,8 +203,8 @@ const App = () => {
                 <img src={firstSlider} width={'100%'} alt=''></img>
               </Col>
               <Col xs={24} md={10} className="s4-c-left-section">
-                <div className="s4-c-title">Choose your impact</div>
-                <div className="s4-c-des">Select from a verified list of impacts that are transforming distinct parts of India.</div>
+                <div className="s4-c-title">Create your account in under 2 minutes</div>
+                {/* <div className="s4-c-des">Select from a verified list of impacts that are transforming distinct parts of India.</div> */}
                 {/* <Row>
                     <Col xs={18} md={10} lg={15}>
                       <PrimaryBtn
@@ -224,8 +233,8 @@ const App = () => {
                 <img src={firstSlider} width={'100%'} alt=''></img>
               </Col>
               <Col xs={24} md={10} className="s4-c-left-section">
-                <div className="s4-c-title">Make a donation</div>
-                <div className="s4-c-des">Before you place your purchase, donate 50% of the product value directly to your chosen organisation.</div>
+                <div className="s4-c-title">Up your climate knowledge, one level at a time</div>
+                {/* <div className="s4-c-des">Before you place your purchase, donate 50% of the product value directly to your chosen organisation.</div> */}
                 {/* <Row>
                     <Col xs={18} md={10} lg={15}>
                       <PrimaryBtn
@@ -254,8 +263,8 @@ const App = () => {
                 <img src={firstSlider} width={'100%'} alt=''></img>
               </Col>
               <Col xs={24} md={10} className="s4-c-left-section">
-                <div className="s4-c-title">Purchase the product</div>
-                <div className="s4-c-des">Once you've donated, you will be redirected back to the page where you can complete your purchase.</div>
+                <div className="s4-c-title">Get your climate card - your one stop profile for all things you and your climate action </div>
+                {/* <div className="s4-c-des">Once you've donated, you will be redirected back to the page where you can complete your purchase.</div> */}
                 {/* <Row>
                     <Col xs={18} md={10} lg={15}>
                       <PrimaryBtn
@@ -278,10 +287,6 @@ const App = () => {
           </div>
         </div>
       </Carousel>
-    </div>
-    <div className="s4">
-      <div className="s4-des">Why choose GoodStep?</div>
-      <div className="s4-title">Reaching most vulnerable communities, first.</div>
     </div>
     <div className='s5'>
 
@@ -459,15 +464,18 @@ const App = () => {
       </Row>
     </div>
     <div className='s6'>
-      <div className='s6-title center'>Ready to make your climate impact?</div>
+      <div className='s6-title center'>Ready to Level Up? </div>
       <div className='s6-des center'>We want to empower people to do their bit for the climate through causes that responds to India’s mostclimate-vulnerable communities</div>
-      <button className='ready-arrow center'>
+      <button className='ready-arrow center' onClick={()=>{
+        localStorage.setItem('stepNumber',1)
+        navigate('/login-register')
+      }}>
         <img src={arrow} alt='' width={'3.5%'}></img>
       </button>
     </div>
     <div className='footer'>
       <div className='footer-s1'>
-        <div className='footer-title center'>Enter email to subscribe</div>
+        {/* <div className='footer-title center'>Enter email to subscribe</div>
         <Row justify={'center'}>
           <Col md={8} lg={7}>
             <Input.Search
@@ -477,8 +485,8 @@ const App = () => {
               onSearch={onSearch}
             />
           </Col>
-        </Row>
-        <br />
+        </Row> */}
+        {/* <br /> */}
         <div className='footer-logo center'><img src={HeaderImg} alt='' width={'30%'}></img></div>
         <div className='footer-des center'> GoodStep is a game, where everyone wins - planet, people and you! The platform helps you make a gradual transition to a more sustainable and socially responsible lifestyle - and the best part? We make it easy, non-disruptive, and a fun game you can play with friends!</div>
         <Row justify={'center'}>

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { HomeOutlined, LogoutOutlined, LayoutOutlined } from '@ant-design/icons';
+import { HomeOutlined, LogoutOutlined, LayoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu, Col, Row } from 'antd';
 import './dashboard.css';
 import logo from '../../img/footer-logo1.png';
@@ -16,6 +16,11 @@ const items = [
         label: <NavLink className="nav-link active" aria-current="page" to={'/dashboard'}>Dashboard</NavLink>,
         key: '2',
         icon: <LayoutOutlined />,
+    },
+    {
+        label: <NavLink className="nav-link active" aria-current="page" to={'/myprofile'}>My Profile</NavLink>,
+        key: '3',
+        icon: <UserOutlined />,
     },
     {
         label: <NavLink className="nav-link active" aria-current="page" to={'/'} onClick={() => {
