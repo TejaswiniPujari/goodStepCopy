@@ -100,11 +100,11 @@ const App = () => {
             <Col xs={22} md={22} lg={15}>
               <PrimaryBtn
                 title={'Get started'}
-                color={'#386AA3'}
+                color={'#6758F2'}
                 background={'white'}
-                backgroundh={'#386AA3'}
+                backgroundh={'#6758F2'}
                 colorh={'white'}
-                border={'2px solid #386AA3'}
+                border={'2px solid #6758F2'}
                 onClick={()=>{
                   navigate('/login-register')
                 }}
@@ -126,11 +126,11 @@ const App = () => {
             <Col xs={20} md={18}>
               <PrimaryBtn
                 title={'Learn more'}
-                color={'#386AA3'}
+                color={'#6758F2'}
                 background={'white'}
-                backgroundh={'#386AA3'}
+                backgroundh={'#6758F2'}
                 colorh={'white'}
-                border={'2px solid #386AA3'}
+                border={'2px solid #6758F2'}
               />
             </Col>
           </Row>
@@ -198,6 +198,7 @@ const App = () => {
       <Carousel ref={slider} autoplay dots={null} effect={'fade'}>
         <div >
           <div className='contentStyle1'>
+          <div className='contentStyle'>
             <Row justify={'space-between'} align={'middle'}>
               <Col xs={24} md={12} >
                 <img src={firstSlider} width={'100%'} alt=''></img>
@@ -225,9 +226,11 @@ const App = () => {
               </Col>
             </Row>
           </div>
+          </div>
         </div>
         <div>
           <div className='contentStyle2'>
+          <div className='contentStyle'>
             <Row justify={'space-between'} align={'middle'}>
               <Col xs={24} md={12} >
                 <img src={firstSlider} width={'100%'} alt=''></img>
@@ -255,9 +258,11 @@ const App = () => {
               </Col>
             </Row>
           </div>
+          </div>
         </div>
         <div>
           <div className='contentStyle3'>
+            <div className='contentStyle'>
             <Row justify={'space-between'} align={'middle'} >
               <Col xs={24} md={12} >
                 <img src={firstSlider} width={'100%'} alt=''></img>
@@ -284,6 +289,7 @@ const App = () => {
                 </Row>
               </Col>
             </Row>
+            </div>
           </div>
         </div>
       </Carousel>

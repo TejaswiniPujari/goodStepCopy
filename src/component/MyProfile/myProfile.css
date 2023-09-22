@@ -12,16 +12,22 @@
 .profile-identity {
     font-size: 20px;
     padding-bottom: 10px;
+    color: #6758F2;
+    font-weight: 400;
 }
 
 .profile-gender {
     font-size: 20px;
     padding-bottom: 10px;
+    color: #6758F2;
+    font-weight: 400;
 }
 
 .profile-dob {
     font-size: 20px;
     padding-left: 10px;
+    color: #6758F2;
+    font-weight: 400;
 }
 
 .myprofile-page button {
@@ -51,9 +57,13 @@
 }
 .activity-des{
     font-size: 16px;
+    color: #6758F2;
+    font-weight: 400;
 }
 .short-bio{
     font-size: 16px;
+    color: #6758F2;
+    font-weight: 400;
 }
 
 @media (max-width: 600px) {

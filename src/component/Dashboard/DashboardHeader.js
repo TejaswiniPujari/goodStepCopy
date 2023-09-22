@@ -27,18 +27,18 @@ const items = [
             localStorage.setItem("logged", 'false');
             localStorage.setItem("userDetails", null);
         }}>LogOut</NavLink>,
-        key: '6',
+        key: '4',
         icon: <LogoutOutlined />,
     },
 ];
 
 const DashboardHeader = () => {
-    const [current, setCurrent] = useState('1');
+    const [current, setCurrent] = useState('2');
 
     const onClick = (e) => {
         setCurrent(e.key);
     };
-
+console.log(current)
     return (<>
         <div className='dashboard-header'>
             <Row justify={'space-between'} align={'middle'}>

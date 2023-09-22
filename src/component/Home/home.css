@@ -29,7 +29,7 @@
 
 .homePage-des {
     font-size: 20px;
-    color: #5F4FA1;
+    color: #6758F2;
     line-height: 29px;
     margin-bottom: 20px;
     font-weight: 400;
@@ -124,7 +124,7 @@
 .s4-des {
     font-size: 23px;
     text-align: center;
-    color: #5F4FA1;
+    color: #6758F2;
     font-weight: 400;
 }
 
@@ -136,27 +136,23 @@
     margin: 20px 0;
     font-family: ABeeZee;
 }
-
+.contentStyle{
+    background-image: url('../../img//Group.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 .contentStyle1 {
     /* background-image: url(../../img/crop-farmer.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%; */
-    background: linear-gradient(235.07deg,
-    rgba(216, 112, 206, 0.5785) 16.51%,
-    rgba(112, 124, 216, 0.89) 34.64%,
-    rgba(126, 183, 247, 0.4984) 56.22%,
-    rgba(243, 60, 196, 0.5785) 87.43%);
+    background: linear-gradient(235.07deg, rgba(112, 124, 216, 0.89) 36.8%, rgba(126, 183, 247, 0.4984) 56.22%, rgba(132, 94, 210, 0.6141) 76.93%);
     height: 320px;
     /* border-radius: 30px; */
     padding: 40px;
 }
 
 .contentStyle2 {
-    background: linear-gradient(235.07deg,
-    rgba(216, 112, 206, 0.5785) 16.51%,
-    rgba(112, 124, 216, 0.89) 34.64%,
-    rgba(126, 183, 247, 0.4984) 56.22%,
-    rgba(243, 60, 196, 0.5785) 87.43%);
+    background: linear-gradient(235.07deg, rgba(112, 124, 216, 0.89) 36.8%, rgba(126, 183, 247, 0.4984) 56.22%, rgba(132, 94, 210, 0.6141) 76.93%);
     /* background-image: url(../../img/crop-farmer1.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%; */
@@ -166,11 +162,7 @@
 }
 
 .contentStyle3 {
-    background: linear-gradient(235.07deg,
-    rgba(216, 112, 206, 0.5785) 16.51%,
-    rgba(112, 124, 216, 0.89) 34.64%,
-    rgba(126, 183, 247, 0.4984) 56.22%,
-    rgba(243, 60, 196, 0.5785) 87.43%);
+    background: linear-gradient(235.07deg, rgba(112, 124, 216, 0.89) 36.8%, rgba(126, 183, 247, 0.4984) 56.22%, rgba(132, 94, 210, 0.6141) 76.93%);
     /* background-image: url(../../img/crop-farmer3.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%; */
@@ -270,7 +262,7 @@
     width: 50vw;
     margin: 0 auto;
     font-size: 20px;
-    color: #5F4FA1;
+    color: #6758F2;
     margin-bottom: 50px;
 }
 

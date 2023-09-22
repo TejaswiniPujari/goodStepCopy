@@ -19,7 +19,7 @@ import badge10 from '../../img/badge/10.png';
 import DashboardHeader from './DashboardHeader.js';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { baseUrl } from '../../request';
-const cardColorCode = ['#6758F2', '#71A2D9', '#707CD8', '#5F4FA1', '#845ED2', '#A47CF8'];
+const cardColorCode = ['#6758F2', '#71A2D9', '#707CD8', '#6758F2', '#845ED2', '#A47CF8'];
 
 const Dashboard = () => {
     const slider = useRef(null);

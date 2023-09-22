@@ -4,6 +4,7 @@ import './login.css';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../img/footer-logo1.png';
+import blogo from '../../img/logo-incolor.png';
 import { baseUrl } from '../../request';
 
 const Register = ({ onFinish, onFinishFailed, loading }) => {
@@ -636,7 +637,7 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
             <div className='step2-page'>
                 <div className='logo-img-top'>
                     <NavLink to={'/'}>
-                        <img src={logo} alt='' width={'100%'} />
+                        <img src={blogo} alt='' width={'100%'} />
                     </NavLink>
                 </div>
                 <div className='login-form'>
@@ -752,7 +753,7 @@ const Register = ({ onFinish, onFinishFailed, loading }) => {
             <div className='step2-page'>
                 <div className='logo-img-top'>
                     <NavLink to={'/'}>
-                        <img src={logo} alt='' width={'100%'} />
+                        <img src={blogo} alt='' width={'100%'} />
                     </NavLink>
                 </div>
                 <div className='login-form'>
